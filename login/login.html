@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Karyawan</title>
+    <link rel="stylesheet" href="/login/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="login-container">
+      <div class="login-form">
+        <img src="/img/MMM_LOGO-removebg_1.png" alt="Company Logo" class="company-logo" />
+        <h2>Welcome, Please login</h2>
+        <form id="loginForm">
+          <div class="form-group" style="font-style: italic">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div class="form-group password-container" style="font-style: italic">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <span class="toggle-password">
+              <i class="fas fa-eye"></i>
+            </span>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+        <div id="error-message"></div>
+      </div>
+    </div>
+    <script src="/login/script.js"></script>
+  </body>
+</html>

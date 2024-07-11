@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- my style -->
+    <link rel="stylesheet" href="/kontak/style.css" />
+
+    <title>HUBUNGI KAMI - PT MERAPI MAJU MAKMUR</title>
+
+    <link rel="shortcut icon" href="/img/favicon mmm.jpg" type="image/x-icon" />
+
+    <!-- /* Animasi loading */ -->
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 10vw; /* Gunakan viewport width (vw) untuk lebar */
+        height: 10vw; /* Gunakan viewport width (vw) untuk tinggi */
+        max-width: 50px; /* Batasi lebar maksimum */
+        max-height: 50px; /* Batasi tinggi maksimum */
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none; /* Sembunyikan loader awalnya */
+      }
+
+      /* Tambahkan media queries untuk ukuran layar tertentu */
+      @media screen and (max-width: 768px) {
+        .loader {
+          /* Sesuaikan lebar dan tinggi sesuai kebutuhan */
+          width: 20vw;
+          height: 20vw;
+        }
+      }
+
+      /* Tambahkan aturan media queries untuk layar seluler */
+      @media screen and (max-width: 576px) {
+        .loader {
+          width: 20vw; /* Sesuaikan lebar untuk layar seluler */
+          height: 20vw; /* Sesuaikan tinggi untuk layar seluler */
+          max-width: 40px; /* Sesuaikan lebar maksimum untuk layar seluler */
+          max-height: 40px; /* Sesuaikan tinggi maksimum untuk layar seluler */
+        }
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- ToTop -->
+    <style>
+      #toTop {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #a30c0c;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      #toTop:hover {
+        background-color: #00b7ff;
+        color: #000000;
+        background-position: contain;
+        transform: scale(1.1);
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="loader" class="loader"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" id="mainNavbar">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html"><img src="/img/MMM_LOGO_2.png" alt="Logo" width="90" height="66" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item active">
+                <a class="nav-link fw-bold" aria-current="page" href="/index.html">BERANDA</a>
+              </li>
+              <li class="nav-item dropdown mx-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> TENTANG KAMI </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/profil/profil.html">Profil Perusahaan</a></li>
+                  <li><a class="dropdown-item" href="/profil/pemasaran.html">Wilayah Pemasaran</a></li>
+                  <li><a class="dropdown-item" href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                  <li><a class="dropdown-item" href="/profil/sosial.html">Partisipasi & Peduli Sosial</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="/produk/produk.html">PRODUK</a>
+              </li>
+              <li class="nav-item dropdown mx-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> MEDIA </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/events/event.html">Event</a></li>
+                  <li><a class="dropdown-item" href="/berita/berita.html">Berita</a></li>
+                  <li><a class="dropdown-item" href="/maps/maps.html">Maps</a></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link fw-bold active" href="/kontak/kontak.html">KONTAK KAMI</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- nav end -->
+
+    <!-- Menu section start -->
+    <section id="outerMainSection" style="background-image: url('/img/merapi\ wllper.jpg')" class="content page py-5 container-fluid">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 row-container px-0">
+          <nav aria-label="breadcrumb">
+            <ol id="breadcrumb" class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/" class="text-dark">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" class="text-dark">Tentang Kami</a></li>
+              <li class="breadcrumb-item text-danger">Kontak Form Perusahaan</li>
+            </ol>
+          </nav>
+          <div class="card1 bg-white">
+            <div class="row mb-3 position-relative header-container mx-0">
+              <div class="icon-fly">
+                <div class="icon-fly"><i data-feather="mail" width="60" height="100" style="color: #b30a0a;"></i>
+              </div>
+              <div class="col d-flex align-items-end">
+                <h1 class="font-weight-bold text-blue">Kontak Form</h1>
+              </div>
+            </div>
+
+            <div class="card1-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 sidebar-container mb-4">
+                  <div class="col-12">
+                    <div class="pin-wrapper">
+                      <h6 class="mb-none"><strong>Tentang Kami</strong></h6>
+                      <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+                      <h6><strong>Media</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p><a data-hash="" data-hash-offset="110" href="#"></a></p>
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="/events/event.html">Event Perusahaan Kami</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/berita/berita.html">Berita Seputar Perusahaan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/maps/maps.html">Map Kantor Perusahaan</a></p>
+                      </ul>
+                      <h6><strong>Hubungi Kami</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="#" style="color: #b30a0a;">Kontak Kami</a></p>
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="/login/login.html">Download Aplikasi Akses Karyawan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/kontak/karir.html">Informasi Lowongan Kerja</a></p>
+                      </ul>
+                      <h6 class="mb-3"><strong>Ikuti Sosial Media Kami</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p class="justify-content-center">
+                          <li>
+                            <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i class="p-1"  style="background-color: #ff00ea; color: #ffffff;" data-feather="instagram"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i class="p-1"  style="background-color: #ff0000; color: #ffffff;" data-feather="youtube"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i class="p-1"  style="background-color: #006eff; color: #ffffff;" data-feather="facebook"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://twitter.com/aboutthree_m" target="_blank"><i class="p-1"  style="background-color: #000000; color: #ffffff;" data-feather="twitter"></i></a>
+                          </li>
+                          
+                          <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+                        </p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 sidebar-container">
+                  <!-- Konten Utama -->
+    <!-- kontak -->
+    <section id="kontak">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-6 mx-auto">
+              <div class="col" data-wilayah="Wilayah 1" data-lokasi="Alamat 1">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row embed-responsive embed-responsive-16by9">
+                      <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507547.8601383347!2d106.65874200293003!3d-6.365871660078751!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6993913cee29b5%3A0x8a452a87743a4979!2sPT%20MERAPI%20MAJU%20MAKMUR!5e0!3m2!1sen!2sid!4v1701316738791!5m2!1sen!2sid"
+                        width="650"
+                        height="450"
+                        style="border: 0"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                      ></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mt-3">
+              <div class="row text-center">
+                <div class="col">
+                  <h2 class="fw-bold mb-3">Kontak Kami</h2>
+                  <main class="content">
+                    <p >
+                      Kami terbuka untuk pertanyaan terkait lini bisnis. Dan kami juga menerima saran dan masukan yang dapat ditunjukan untuk kebaikan kedua belah pihak. Silahkan ajukan pertanyaan anda melalu
+                      form dibawah ini.
+                    </p>
+                  </main>
+                </div>
+              </div>
+              <form action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="23da41a0-0ffa-4c35-a7c8-d265e062d1ce" />
+                <div class="mb-3">
+                  <label for="name" class="form-label">Nama Lengkap</label>
+                  <input type="text" name="name" placeholder="Nama Anda" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="email" name="email" placeholder="Email Anda" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                  <label for="pesan" class="form-label">Subject</label>
+                  <select name="message" class="form-control" required>
+                    <option value="" disabled selected>Pilih Subjek</option>
+                    <option value="tanya-produk ">Produk</option>
+                    <option value="tanya-Karir " data-country="no">Karir</option>
+                    <option value="tanya-lainnya " data-country="no">Lainnya</option>
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <label for="pesan" class="form-label">Pesan</label>
+                  <textarea name="message" placeholder="Pesan Anda" rows="4" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="fw-bold btn btn-danger">Kirim</button>
+              </form>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Ikon Sosial Media -->
+        <div class="mb-5"></div>
+      </section>
+      <!-- kontak end -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+      <!-- FOOTER -->
+   <footer id="menuFooterSection" class="container-fluid py-5">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-12 mx-auto">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-12 col-12 mb-3 footer-menu-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">TENTANG KAMI</div>
+                <ul class="footer-links">
+                  <li><a href="/index.html">Beranda</a></li>
+                  <li><a href="/profil/profil.html">Profil</a></li>
+                  <li><a href="/profil/pemasaran.html">Pemasaran</a></li>
+                  <li><a href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                  <li><a href="/profil/sosial.html">Partisipasi Sosial</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">PRODUK KAMI</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/produk/produk.html">Produk</a></li>
+                  <li><a href="/login/login2.html">Branding</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">MEDIA</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/events/event.html">Event</a></li>
+                  <li><a href="/berita/berita.html">Berita</a></li>
+                  <li><a href="/maps/maps.html">Peta</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">KARYAWAN</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/kontak/karir.html">Karir</a></li>
+                  <li><a href="/login/login.html">Download</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
+            <div class="contact-135 mb-5">
+              <div class="font-weight-bold title text-uppercase fw-bold text-warning">HUBUNGI KAMI</div>
+              <ul class="footer-links">
+                <!-- <li><a href="/news">What's On</a></li> -->
+                <li><a href="/kontak/kontak.html">Kontak Form</a></li>
+              </ul>
+            </div>
+            <div class="address">
+              <p><strong>Alamat : </strong>Ruko Limus Pratama, Blok C No 30,, Jl. Raya Narogong, Limus Nunggal, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i data-feather="instagram"></i></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i data-feather="facebook"></i></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/aboutthree_m" target="_blank"><i data-feather="twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i data-feather="youtube"></i></a>
+              </li>
+              <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copy py-3">© Copyright PT Merapi Maju Makmur 2023. All Right Reserved</div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Arrow Up -->
+    <div id="toTop" class="toptip bounce" title="Back to Top"><i data-feather="chevron-up"></i></div>
+    <!-- Arrow Up end-->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- MY JAVASCRIPT -->
+    <script src="/kontak/script.js"></script>
+
+    <!-- jQuery AU-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $("#toTop").fadeIn();
+          } else {
+            $("#toTop").fadeOut();
+          }
+        });
+
+        // Scroll to top with a smooth transition
+        $("#toTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 800); // 800ms for the scroll duration
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

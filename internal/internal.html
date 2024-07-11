@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3D Carousel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <style>
+      .section-header {
+        background-color: #343a40;
+        padding: 20px;
+      }
+      .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .carousel-item {
+        position: relative;
+        text-align: center;
+        padding: 10px;
+        opacity: 0.5; /* Mengurangi opacity item yang tidak aktif */
+        transition: opacity 0.3s ease-in-out;
+        transform-style: preserve-3d; /* Menjaga efek 3D */
+        backface-visibility: hidden; /* Menyembunyikan sisi belakang */
+      }
+      .carousel-item.slick-center {
+        opacity: 1; /* Memperjelas item tengah */
+        transform: scale(1.1); /* Memperbesar item tengah */
+        z-index: 2; /* Menyimpan item tengah di atas */
+      }
+      .carousel-item img {
+        max-width: 100%;
+        border-radius: 10px;
+        cursor: pointer; /* Menjadikan cursor menjadi pointer */
+        transition: transform 0.3s ease-in-out; /* Animasi transform saat hover */
+      }
+      .carousel-item img:hover {
+        transform: scale(1.1); /* Memperbesar gambar saat hover */
+      }
+      .item-desc {
+        margin-top: 10px;
+      }
+      .btn-prev,
+      .btn-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 10;
+      }
+      .btn-prev {
+        left: 10px;
+      }
+      .btn-next {
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section section-ingredient panel sec-2" data-section-name="sec-2" style="height: 800px">
+      <div class="bg-dark section-header mb-3" style="width: 100%">
+        <h5 class="text-white text-center" style="font-weight: 700; font-size: 28px">Rahasia Kretek Kudus</h5>
+        <p class="text-white text-center" style="font-size: 23px">Paduan Rempah Nusantara Pilihan</p>
+      </div>
+      <div class="carousel">
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/16798564046420931427b6d.jpg" alt="Adas Manis" id="imgIngredient1" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Adas Manis</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-1">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/1679856313642092b9d6a09.jpg" alt="Bunga Lawang" id="imgIngredient2" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Bunga Lawang</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-2">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/1679856162642092228f74f.jpg" alt="Cengkih" id="imgIngredient3" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Cengkih</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-3">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/16798564816420936178c1c.jpg" alt="Vanili" id="imgIngredient4" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Vanili</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-4">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/1679856574642093be4c8d5.jpg" alt="Kayu Manis" id="imgIngredient5" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Kayu Manis</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-5">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/16798566696420941d9c79e.jpg" alt="Pala" id="imgIngredient6" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Pala</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-6">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/16798567266420945645e09.jpg" alt="Kapulaga Jawa" id="imgIngredient7" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Kapulaga Jawa</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-7">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/16798567806420948cb0a3b.jpg" alt="Akar Manis" id="imgIngredient8" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Akar Manis</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-8">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/1679856823642094b75c772.jpg" alt="Andaliman" id="imgIngredient9" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Andaliman</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-9">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/1679856873642094e9caa0a.jpg" alt="Kelembak" id="imgIngredient10" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Kelembak</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-10">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/167985691564209513307e3.jpg" alt="Jintan Hitam" id="imgIngredient11" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Jintan Hitam</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-11">Selengkapnya +</button>
+          </div>
+        </div>
+        <div class="carousel-item ingredient item">
+          <img src="https://www.djarum.com/storage/uploaded/slider/167985697964209553b027d.jpg" alt="Daun Salam" id="imgIngredient12" />
+          <div class="item-desc">
+            <p class="item-name mb-0">Daun Salam</p>
+            <button class="btn-more" data-role="open-popup" data-target="ingredient-12">Selengkapnya +</button>
+          </div>
+        </div>
+      </div>
+      <a name="" id="" class="btn-prev prev d-none d-lg-block slick-arrow" onclick="prev(this)" role="button" style="display: inline"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+      <a name="" id="" class="btn-next next d-none d-lg-block slick-arrow" onclick="next(this)" role="button" style="display: inline"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".carousel").slick({
+          centerMode: true,
+          centerPadding: "60px", // Sesuaikan dengan lebar gambar dan jumlah item yang ingin ditampilkan
+          slidesToShow: 5,
+          prevArrow: $(".btn-prev"),
+          nextArrow: $(".btn-next"),
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1,
+                centerMode: true,
+                centerPadding: "20%",
+              },
+            },
+          ],
+        });
+
+        // Klik pada gambar untuk geser ke item berikutnya atau sebelumnya
+        $(".carousel-item img").click(function () {
+          var currentIndex = $(this).closest(".carousel-item").attr("data-slick-index");
+          $(".carousel").slick("slickGoTo", currentIndex);
+        });
+      });
+    </script>
+  </body>
+</html>

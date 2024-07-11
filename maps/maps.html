@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- my style -->
+    <link rel="stylesheet" href="/maps/style.css" />
+
+    <title>MEDIA - MAP KANTOR PT MERAPI MAJU MAKMUR</title>
+
+    <link rel="shortcut icon" href="/img/favicon mmm.jpg" type="image/x-icon" />
+
+     <!-- konten maps -->
+     <style>
+        .maps-container {
+          margin: 20px auto;
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+      </style>
+
+    <!-- /* Animasi loading */ -->
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 10vw; /* Gunakan viewport width (vw) untuk lebar */
+        height: 10vw; /* Gunakan viewport width (vw) untuk tinggi */
+        max-width: 50px; /* Batasi lebar maksimum */
+        max-height: 50px; /* Batasi tinggi maksimum */
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none; /* Sembunyikan loader awalnya */
+      }
+
+      /* Tambahkan media queries untuk ukuran layar tertentu */
+      @media screen and (max-width: 768px) {
+        .loader {
+          /* Sesuaikan lebar dan tinggi sesuai kebutuhan */
+          width: 20vw;
+          height: 20vw;
+        }
+      }
+
+      /* Tambahkan aturan media queries untuk layar seluler */
+      @media screen and (max-width: 576px) {
+        .loader {
+          width: 20vw; /* Sesuaikan lebar untuk layar seluler */
+          height: 20vw; /* Sesuaikan tinggi untuk layar seluler */
+          max-width: 40px; /* Sesuaikan lebar maksimum untuk layar seluler */
+          max-height: 40px; /* Sesuaikan tinggi maksimum untuk layar seluler */
+        }
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- ToTop -->
+    <style>
+      #toTop {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #a30c0c;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      #toTop:hover {
+        background-color: #00b7ff;
+        color: #000000;
+        background-position: contain;
+        transform: scale(1.1);
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="loader" class="loader"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" id="mainNavbar">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html"><img src="/img/MMM_LOGO_2.png" alt="Logo" width="90" height="66" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" aria-current="page" href="/index.html">BERANDA</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> TENTANG KAMI </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/profil/profil.html">Profil Perusahaan</a></li>
+                <li><a class="dropdown-item" href="/profil/pemasaran.html">Wilayah Pemasaran</a></li>
+                <li><a class="dropdown-item" href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                <li><a class="dropdown-item" href="/profil/sosial.html">Partisipasi & Peduli Sosial</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="/produk/produk.html">PRODUK</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle  active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> MEDIA </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/events/event.html">Event</a></li>
+                <li><a class="dropdown-item" href="/berita/berita.html">Berita</a></li>
+                <li><a class="dropdown-item  active" href="/maps/maps.html">Maps</a></li>
+                <li></li>
+              </ul>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link fw-bold" href="/kontak/kontak.html">KONTAK KAMI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav end -->
+
+    <!-- Menu section start -->
+    <section id="outerMainSection" style="background-image: url('/img/BMN.jpg')" class="content page py-5 container-fluid">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 row-container px-0">
+          <nav aria-label="breadcrumb">
+            <ol id="breadcrumb" class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" class="text-white">Tentang Kami</a></li>
+              <li class="breadcrumb-item text-warning">Peta Maps Kantor Perusahaan</li>
+            </ol>
+          </nav>
+          <div class="card1 bg-white">
+            <div class="row mb-3 position-relative header-container mx-0">
+              <div class="icon-fly">
+                <div class="icon-fly"><i data-feather="map" width="60" height="100"></i>
+              </div>
+              <div class="col d-flex align-items-end">
+                <h1 class="font-weight-bold text-blue"><span style="color: #a30c0c;">MAP </span>Kantor</h1>
+              </div>
+            </div>
+
+            <div class="card1-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 sidebar-container">
+                  <div class="col-12">
+                    <div class="pin-wrapper">
+                      <h6 class="mb-none"><strong>Tentang Kami</strong></h6>
+                      <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+                      <h6><strong>Media</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p><a data-hash="" data-hash-offset="110" href="#"></a></p>
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="/events/event.html">Event Perusahaan Kami</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/berita/berita.html">Berita Seputar Perusahaan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="#">Map Kantor Perusahaan</a></p>
+                      </ul>
+                      <h6><strong>Maps Kantor</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active mb-4">
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+MERAPI+MAJU+MAKMUR/@-6.361639,106.975107,15z/data=!4m6!3m5!1s0x2e6993913cee29b5:0x8a452a87743a4979!8m2!3d-6.3616394!4d106.9751067!16s%2Fg%2F11c0rr6qgx?hl=id&entry=ttu">Kantor Pusat PT Merapi Maju Makmur</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+MERAPI+MAJU+MAKMUR/@-6.144304,106.779558,13z/data=!4m6!3m5!1s0x2e69f716db902a21:0xe381e7d35ec47ff6!8m2!3d-6.1443042!4d106.779558!16s%2Fg%2F11l2dtr7ph?hl=en&entry=ttu">Kantor Pos Unit Wilayah Jakarta 1</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT.+Merapi+Maju+Makmur+Cempaka+Putih/@-6.180427,106.875274,14z/data=!4m6!3m5!1s0x2e69f4fb6795cafd:0x3a218170d39edde1!8m2!3d-6.180427!4d106.875274!16s%2Fg%2F11f4m9yyhv?hl=en&entry=ttu">Kantor Pos Unit Wilayah Jakarta 2</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT.+MERAPI+MAJU+MAKMUR+-+DEPOK/@-6.36519,106.81482,13z/data=!4m6!3m5!1s0x2e69efa682a92e3d:0xf6634b54e1729e3!8m2!3d-6.3651901!4d106.8148203!16s%2Fg%2F11h10cxc84?hl=en&entry=ttu">Kantor Pos Unit Wilayah Depok</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT.+MERAPI+MAJU+MAKMUR+-+CIREBON+(NESLITE+MAX)/@-6.7248034,108.5043171,12.25z/data=!4m6!3m5!1s0x2e6ee30abc1dfe29:0x330e0cfe18422340!8m2!3d-6.7019861!4d108.5457767!16s%2Fg%2F11q2zyg5hp?hl=en&entry=ttu">Kantor Pos Unit Wilayah Cirebon</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/6%C2%B016'16.0%22S+106%C2%B058'50.0%22E/@-6.271152,106.979282,15z/data=!4m4!3m3!8m2!3d-6.2711111!4d106.9805556?hl=id&entry=ttu">Kantor Pos Unit Wilayah Bekasi</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Karawang/@-6.310278,107.321912,15z/data=!4m6!3m5!1s0x2e697700701547f1:0x5917e2ccf591f1d3!8m2!3d-6.3102782!4d107.3219123!16s%2Fg%2F11y2hh2s21?hl=id&entry=ttu">Kantor Pos Unit Wilayah Karawang</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Bogor/@-6.567388,106.803302,15z/data=!4m6!3m5!1s0x2e69c5003e9142d3:0xabd596877f71fe4a!8m2!3d-6.5673884!4d106.8033022!16s%2Fg%2F11lcyjxd5b?hl=id&entry=ttu">Kantor Pos Unit Wilayah Bogor</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Bandung/@-6.93429,107.629073,15z/data=!4m6!3m5!1s0x2e68e9000f002e8d:0xbdb2cd6ee6f5e847!8m2!3d-6.9342896!4d107.6290734!16s%2Fg%2F11vprt4c5h?hl=id&entry=ttu">Kantor Pos Unit Wilayah Bandung</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Tangerang/@-6.189871,106.65872,15z/data=!4m6!3m5!1s0x2e69f9004bbb2b47:0x28434945534fe108!8m2!3d-6.1898713!4d106.6587196!16s%2Fg%2F11vr1grfrm?hl=id&entry=ttu">Kantor Pos Unit Wilayah Tangerang</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Pandeglang/@-6.333687,106.085688,15z/data=!4m6!3m5!1s0x2e423cb8249177cb:0xbe88f94a7addedf4!8m2!3d-6.3336875!4d106.0856875!16s%2Fg%2F11gff363g2?hl=id&entry=ttu">Kantor Pos Unit Wilayah Pandeglang</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Majalengka/@-6.815181,108.195971,15z/data=!4m6!3m5!1s0x2e6f29004fe7242b:0xf6a4869e7112f8fc!8m2!3d-6.8151808!4d108.1959707!16s%2Fg%2F11y3353cs4?hl=id&entry=ttu">Kantor Pos Unit Wilayah Majalengka</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps?ll=-6.106844,106.173848&z=17&t=m&hl=id&gl=ID&mapclient=embed&cid=13090122275058578453">Kantor Pos Unit Wilayah Serang</a></p>
+                        <p><a data-hash="" data-hash-offset="110" target="_blank" href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Malingping/@-6.809184,106.032069,15z/data=!4m6!3m5!1s0x2e425900042f77bd:0x303138bef4786cb2!8m2!3d-6.8091843!4d106.0320694!16s%2Fg%2F11vs0r42dh?hl=id&entry=ttu">Kantor Pos Unit Wilayah Malingping</a></p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 sidebar-container">
+                  <!-- Konten Utama -->
+                  <!-- ini adalah Peta perusahaan -->
+    <section id="maps">
+        <div class="container justify-content-center">
+          <!-- Wilayah Pemasaran -->
+          <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center bg-light">
+            <!-- Ganti data-wilayah dan data-lokasi sesuai kebutuhan -->
+            <div class="col" data-wilayah="Wilayah 1" data-lokasi="Alamat 1">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">KANTOR PUSAT</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.249747803615!2d106.97510669475207!3d-6.361714033022548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6993913cee29b5%3A0x8a452a87743a4979!2sPT%20MERAPI%20MAJU%20MAKMUR!5e0!3m2!1sid!2sid!4v1701678650268!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+MERAPI+MAJU+MAKMUR/@-6.361639,106.975107,15z/data=!4m6!3m5!1s0x2e6993913cee29b5:0x8a452a87743a4979!8m2!3d-6.3616394!4d106.9751067!16s%2Fg%2F11c0rr6qgx?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 2" data-lokasi="Alamat 2">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS JAKARTA 1</h5>
+  
+                  <div class="row embed-responsive embed-responsive-16by9">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15867.606126077622!2d106.7712265144726!3d-6.14392699379094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f716db902a21%3A0xe381e7d35ec47ff6!2sPT%20MERAPI%20MAJU%20MAKMUR!5e0!3m2!1sen!2sid!4v1701330381625!5m2!1sen!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+MERAPI+MAJU+MAKMUR/@-6.144304,106.779558,13z/data=!4m6!3m5!1s0x2e69f716db902a21:0xe381e7d35ec47ff6!8m2!3d-6.1443042!4d106.779558!16s%2Fg%2F11l2dtr7ph?hl=en&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 3" data-lokasi="Alamat 3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS JAKARTA 2</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7933.251349259686!2d106.8721765038262!3d-6.180830296618298!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f4fb6795cafd%3A0x3a218170d39edde1!2sPT.%20Merapi%20Maju%20Makmur%20Cempaka%20Putih!5e0!3m2!1sen!2sid!4v1701330652319!5m2!1sen!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT.+Merapi+Maju+Makmur+Cempaka+Putih/@-6.180427,106.875274,14z/data=!4m6!3m5!1s0x2e69f4fb6795cafd:0x3a218170d39edde1!8m2!3d-6.180427!4d106.875274!16s%2Fg%2F11f4m9yyhv?hl=en&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 4" data-lokasi="Alamat 4">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS DEPOK</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22430.693461706025!2d106.81630394719028!3d-6.365067819106665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69efa682a92e3d%3A0xf6634b54e1729e3!2sPT.%20MERAPI%20MAJU%20MAKMUR%20-%20DEPOK!5e0!3m2!1sen!2sid!4v1701332857717!5m2!1sen!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT.+MERAPI+MAJU+MAKMUR+-+DEPOK/@-6.36519,106.81482,13z/data=!4m6!3m5!1s0x2e69efa682a92e3d:0xf6634b54e1729e3!8m2!3d-6.3651901!4d106.8148203!16s%2Fg%2F11h10cxc84?hl=en&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 5" data-lokasi="Alamat 5">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS CIREBON</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18849.19520066745!2d108.54662487871019!3d-6.7018809900860825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6ee30abc1dfe29%3A0x330e0cfe18422340!2sPT.%20MERAPI%20MAJU%20MAKMUR%20-%20CIREBON%20(NESLITE%20MAX)!5e0!3m2!1sen!2sid!4v1701332765237!5m2!1sen!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT.+MERAPI+MAJU+MAKMUR+-+CIREBON+(NESLITE+MAX)/@-6.7248034,108.5043171,12.25z/data=!4m6!3m5!1s0x2e6ee30abc1dfe29:0x330e0cfe18422340!8m2!3d-6.7019861!4d108.5457767!16s%2Fg%2F11q2zyg5hp?hl=en&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 6" data-lokasi="Alamat 6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS BEKASI</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3965.9435662079754!2d106.97928177188251!3d-6.27115200044784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNsKwMTYnMTYuMCJTIDEwNsKwNTgnNTAuMCJF!5e0!3m2!1sid!2sid!4v1714126631538!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a href="https://www.google.com/maps/place/6%C2%B016'16.0%22S+106%C2%B058'50.0%22E/@-6.271152,106.979282,15z/data=!4m4!3m3!8m2!3d-6.2711111!4d106.9805556?hl=id&entry=ttu" class="detail fw-bold" target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 7" data-lokasi="Alamat 7">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS KARAWANG</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.6450261841323!2d107.31933737370514!3d-6.310278193679018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e697700701547f1%3A0x5917e2ccf591f1d3!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Karawang!5e0!3m2!1sid!2sid!4v1705479639416!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Karawang/@-6.310278,107.321912,15z/data=!4m6!3m5!1s0x2e697700701547f1:0x5917e2ccf591f1d3!8m2!3d-6.3102782!4d107.3219123!16s%2Fg%2F11y2hh2s21?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 8" data-lokasi="Alamat 8">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS BOGOR</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.637230691945!2d106.80072727370793!3d-6.5673883934258965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5003e9142d3%3A0xabd596877f71fe4a!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Bogor!5e0!3m2!1sid!2sid!4v1705479934572!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Bogor/@-6.567388,106.803302,15z/data=!4m6!3m5!1s0x2e69c5003e9142d3:0xabd596877f71fe4a!8m2!3d-6.5673884!4d106.8033022!16s%2Fg%2F11lcyjxd5b?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 9" data-lokasi="Alamat 9">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS BANDUNG</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6340072644653!2d107.62643927371221!3d-6.934272293065628!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e9000f002e8d%3A0xbdb2cd6ee6f5e847!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Bandung!5e0!3m2!1sid!2sid!4v1705479989660!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Bandung/@-6.93429,107.629073,15z/data=!4m6!3m5!1s0x2e68e9000f002e8d:0xbdb2cd6ee6f5e847!8m2!3d-6.9342896!4d107.6290734!16s%2Fg%2F11vprt4c5h?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 10" data-lokasi="Alamat 10">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS TANGERANG</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5578410193825!2d106.6587196!3d-6.1898713!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f9004bbb2b47%3A0x28434945534fe108!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Tangerang!5e0!3m2!1sid!2sid!4v1709267502969!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Tangerang/@-6.189871,106.65872,15z/data=!4m6!3m5!1s0x2e69f9004bbb2b47:0x28434945534fe108!8m2!3d-6.1898713!4d106.6587196!16s%2Fg%2F11vr1grfrm?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 11" data-lokasi="Alamat 11">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS PANDEGLANG</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.465290416186!2d106.08305507370541!3d-6.333717993655909!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e423cb8249177cb%3A0xbe88f94a7addedf4!2sPos%20PT.MMM%20Pandeglang!5e0!3m2!1sid!2sid!4v1705480188918!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Pandeglang/@-6.333687,106.085688,15z/data=!4m6!3m5!1s0x2e423cb8249177cb:0xbe88f94a7addedf4!8m2!3d-6.3336875!4d106.0856875!16s%2Fg%2F11gff363g2?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 12" data-lokasi="Alamat 12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS MAJALENGKA</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.6267132757685!2d108.19339577590533!3d-6.815175466661659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f29004fe7242b%3A0xf6a4869e7112f8fc!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Majalengka!5e0!3m2!1sid!2sid!4v1707986731059!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Majalengka/@-6.815181,108.195971,15z/data=!4m6!3m5!1s0x2e6f29004fe7242b:0xf6a4869e7112f8fc!8m2!3d-6.8151808!4d108.1959707!16s%2Fg%2F11y3353cs4?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 13" data-lokasi="Alamat 13">
+              <div class="card mb-5">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS SERANG</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d991.7939237388064!2d106.1738957884762!3d-6.107030144183174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e41f5006029f3e9%3A0xb5a974dacf4b7415!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Serang!5e0!3m2!1sid!2sid!4v1709266678094!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a href="https://www.google.com/maps?ll=-6.106844,106.173848&z=17&t=m&hl=id&gl=ID&mapclient=embed&cid=13090122275058578453" class="detail fw-bold" target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="col" data-wilayah="Wilayah 14" data-lokasi="Alamat 14">
+              <div class="card mb-5">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold text-center">POS MALINGPING</h5>
+  
+                  <div class="row embed-responsive embed-responsive-3by4">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.676199255592!2d106.02949983975961!3d-6.809184293216703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e425900042f77bd%3A0x303138bef4786cb2!2sPT%20Merapi%20Maju%20Makmur%20-%20Pos%20Malingping!5e0!3m2!1sid!2sid!4v1705915161679!5m2!1sid!2sid"
+                      width="400"
+                      height="250"
+                      style="border: 0"
+                      allowfullscreen=""
+                      loading="lazy"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                  </div>
+                  <div class="card-title text-center mt-2">
+                    <a
+                      href="https://www.google.com/maps/place/PT+Merapi+Maju+Makmur+-+Pos+Malingping/@-6.809184,106.032069,15z/data=!4m6!3m5!1s0x2e425900042f77bd:0x303138bef4786cb2!8m2!3d-6.8091843!4d106.0320694!16s%2Fg%2F11vs0r42dh?hl=id&entry=ttu"
+                      class="detail fw-bold"
+                      target="_blank"
+                      >More Details <span class="arrow flaticon-arrow-pointing-to-right"></span
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+      <!-- FOOTER -->
+   <footer id="menuFooterSection" class="container-fluid py-5">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-12 mx-auto">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-12 col-12 mb-3 footer-menu-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">TENTANG KAMI</div>
+                <ul class="footer-links">
+                  <li><a href="/index.html">Beranda</a></li>
+                  <li><a href="/profil/profil.html">Profil</a></li>
+                  <li><a href="/profil/pemasaran.html">Pemasaran</a></li>
+                  <li><a href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                  <li><a href="/profil/sosial.html">Partisipasi Sosial</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">PRODUK KAMI</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/produk/produk.html">Produk</a></li>
+                  <li><a href="/login/login2.html">Branding</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">MEDIA</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/events/event.html">Event</a></li>
+                  <li><a href="/berita/berita.html">Berita</a></li>
+                  <li><a href="/maps/maps.html">Peta</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">KARYAWAN</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/kontak/karir.html">Karir</a></li>
+                  <li><a href="/login/login.html">Download</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
+            <div class="contact-135 mb-5">
+              <div class="font-weight-bold title text-uppercase fw-bold text-warning">HUBUNGI KAMI</div>
+              <ul class="footer-links">
+                <!-- <li><a href="/news">What's On</a></li> -->
+                <li><a href="/kontak/kontak.html">Kontak Form</a></li>
+              </ul>
+            </div>
+            <div class="address">
+              <p><strong>Alamat : </strong>Ruko Limus Pratama, Blok C No 30,, Jl. Raya Narogong, Limus Nunggal, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i data-feather="instagram"></i></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i data-feather="facebook"></i></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/aboutthree_m" target="_blank"><i data-feather="twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i data-feather="youtube"></i></a>
+              </li>
+              <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copy py-3">© Copyright PT Merapi Maju Makmur 2023. All Right Reserved</div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Arrow Up -->
+    <div id="toTop" class="toptip bounce" title="Back to Top"><i data-feather="chevron-up"></i></div>
+    <!-- Arrow Up end-->
+
+    <!-- Scripts Modal Struktur-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+
+    <script>
+      document.querySelector(".img-thumbnail").addEventListener("click", () => {
+        document.getElementById("modalImage").src = document.querySelector(".img-thumbnail").src;
+      });
+
+      const modalImage = document.getElementById("modalImage");
+      let scale = 1;
+      let isDragging = false;
+      let startX,
+        startY,
+        currentX = 0,
+        currentY = 0;
+
+      function zoomImage(scaleValue) {
+        scale = scaleValue;
+        modalImage.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
+      }
+
+      document.getElementById("zoomIn").addEventListener("click", () => {
+        zoomImage(scale + 0.1);
+      });
+
+      document.getElementById("zoomOut").addEventListener("click", () => {
+        if (scale > 1) {
+          zoomImage(scale - 0.1);
+        }
+      });
+
+      modalImage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+          zoomImage(scale + 0.1);
+        } else if (e.deltaY > 0 && scale > 1) {
+          zoomImage(scale - 0.1);
+        }
+      });
+
+      modalImage.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+        modalImage.style.cursor = "grabbing";
+      });
+
+      modalImage.addEventListener("mouseup", () => {
+        isDragging = false;
+        modalImage.style.cursor = "move";
+      });
+
+      modalImage.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          currentX = e.clientX - startX;
+          currentY = e.clientY - startY;
+          modalImage.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
+        }
+      });
+
+      modalImage.addEventListener("mouseleave", () => {
+        isDragging = false;
+        modalImage.style.cursor = "move";
+      });
+    </script>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- MY JAVASCRIPT -->
+    <script src="/maps/scripct.js"></script>
+
+    <!-- jQuery AU-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $("#toTop").fadeIn();
+          } else {
+            $("#toTop").fadeOut();
+          }
+        });
+
+        // Scroll to top with a smooth transition
+        $("#toTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 800); // 800ms for the scroll duration
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

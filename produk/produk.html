@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- my style -->
+    <link rel="stylesheet" href="/produk/style.css" />
+
+    <title>PRODUK - PT MERAPI MAJU MAKMUR</title>
+
+    <link rel="shortcut icon" href="/img/favicon mmm.jpg" type="image/x-icon" />
+
+    <!-- expired product -->
+  <style>
+    /* Contoh gaya CSS */
+    .expired-product {
+      opacity: 0.4; /* Atur transparansi atau gaya lain sesuai kebutuhan */
+      pointer-events: active; /* Nonaktifkan interaksi pengguna pada produk yang sudah tidak dijual lagi */
+    }
+  </style>
+
+    <!-- /* Animasi loading */ -->
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 10vw; /* Gunakan viewport width (vw) untuk lebar */
+        height: 10vw; /* Gunakan viewport width (vw) untuk tinggi */
+        max-width: 50px; /* Batasi lebar maksimum */
+        max-height: 50px; /* Batasi tinggi maksimum */
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none; /* Sembunyikan loader awalnya */
+      }
+
+      /* Tambahkan media queries untuk ukuran layar tertentu */
+      @media screen and (max-width: 768px) {
+        .loader {
+          /* Sesuaikan lebar dan tinggi sesuai kebutuhan */
+          width: 20vw;
+          height: 20vw;
+        }
+      }
+
+      /* Tambahkan aturan media queries untuk layar seluler */
+      @media screen and (max-width: 576px) {
+        .loader {
+          width: 20vw; /* Sesuaikan lebar untuk layar seluler */
+          height: 20vw; /* Sesuaikan tinggi untuk layar seluler */
+          max-width: 40px; /* Sesuaikan lebar maksimum untuk layar seluler */
+          max-height: 40px; /* Sesuaikan tinggi maksimum untuk layar seluler */
+        }
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- ToTop -->
+    <style>
+      #toTop {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #a30c0c;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      #toTop:hover {
+        background-color: #00b7ff;
+        color: #000000;
+        background-position: contain;
+        transform: scale(1.1);
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div id="loader" class="loader"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" id="mainNavbar">
+        <div class="container">
+          <a class="navbar-brand" href="/index.html"><img src="/img/MMM_LOGO_2.png" alt="Logo" width="90" height="66" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item active">
+                <a class="nav-link fw-bold" aria-current="page" href="/index.html">BERANDA</a>
+              </li>
+              <li class="nav-item dropdown mx-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> TENTANG KAMI </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/profil/profil.html">Profil Perusahaan</a></li>
+                  <li><a class="dropdown-item" href="/profil/pemasaran.html">Wilayah Pemasaran</a></li>
+                  <li><a class="dropdown-item" href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                  <li><a class="dropdown-item" href="/profil/sosial.html">Partisipasi & Peduli Sosial</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2 active" href="/produk/produk.html">PRODUK</a>
+              </li>
+              <li class="nav-item dropdown mx-2">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> MEDIA </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="/events/event.html">Event</a></li>
+                  <li><a class="dropdown-item" href="/berita/berita.html">Berita</a></li>
+                  <li><a class="dropdown-item" href="/maps/maps.html">Maps</a></li>
+                  <li></li>
+                </ul>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link fw-bold" href="/kontak/kontak.html">KONTAK KAMI</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- nav end -->
+
+    <!-- Menu section start -->
+    <section id="outerMainSection" style="background-image: url('/img/background\ -\ produk\ MMM.jpg')" class="content page py-5 container-fluid">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 row-container px-0">
+          <nav aria-label="breadcrumb">
+            <ol id="breadcrumb" class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" class="text-white">Tentang Kami</a></li>
+              <li class="breadcrumb-item text-warning">Produk Pemasaran Kami</li>
+            </ol>
+          </nav>
+          <div class="card1 bg-white">
+            <div class="row mb-3 position-relative header-container mx-0">
+               <!-- Hero Section Start -->
+<section class="hero-tentang" id="home">
+    <main class="content">
+      <h1>PRODUK<span> MMM</span></h1>
+      <p class="text-light">Selamat datang di halaman informasi produk rokok PT Merapi Maju Makmur. Di sini, Anda akan menemukan beragam informasi terkait produk rokok berkualitas yang kami sediakan.</p>
+    </main>
+    <main class="content1 mb-3">
+      <marquee width="100%" direction="left">
+        <img src="/stiker produk/STICKER NES REG.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER NES MNTHOL.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER NES BLACK.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER NES BLUE LABEL.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER NESLITE MAX 12.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER NESLITE MAX 20.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER 286 K 1.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER 286 MERAH.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER MGM MAX 2.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER MAGNUM KRETEK.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER MGF 16.jpg" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER NICE BOLD.png" height="200" class="mx-3">
+        <img src="/stiker produk/STICKER FIXMAX.jpg" height="200" class="mx-3">
+      </marquee>
+    </main>
+  </section>
+  <!-- Hero Section End -->
+
+            <div class="card1-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 sidebar-container mb-4">
+                  <div class="col-12">
+                    <div class="pin-wrapper">
+                      <h6 class="mb-none"><strong>Tentang Kami</strong></h6>
+                      <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+                      <h6><strong>Product Brand</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active text-primary fw-bold">
+                        <p class="item-active">"NESLITE", </p>
+                        <p class="item-active">"DJI PEK LAK (286)", </p>
+                        <p class="item-active">"BINTANG MAS MAGNUM",</p>
+                        <p class="item-active">"NICE BOLD",</p>
+                        <p class="item-active">"TOPPAS",</p>
+                        <p class="item-active">"GUNUNG JATI",</p>
+                        <p class="item-active">"TUJUH DUA (72)",</p>
+                      </ul>
+                      <h6><strong>Partner</strong></h6>
+                      <ul>
+                        <p><a data-hash="" data-hash-offset="110" href="#">PT Merapi Agung Lestari</a></p>
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="#">PT Gandum</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="#">PT Karya Bina Sentausa</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="#">PT Cipta Kretek Nusantara</a></p>
+                      </ul>
+                      <h6 class="mb-3"><strong>Ikuti Sosial Media Kami</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p class="justify-content-center">
+                          <li>
+                            <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i class="p-1"  style="background-color: #ff00ea; color: #ffffff;" data-feather="instagram"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i class="p-1"  style="background-color: #ff0000; color: #ffffff;" data-feather="youtube"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i class="p-1"  style="background-color: #006eff; color: #ffffff;" data-feather="facebook"></i></a>
+                          </li>
+                          <li>
+                            <a href="https://twitter.com/aboutthree_m" target="_blank"><i class="p-1"  style="background-color: #000000; color: #ffffff;" data-feather="twitter"></i></a>
+                          </li>
+                          
+                          <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+                        </p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 sidebar-container">
+                  <!-- Konten Utama -->
+                    <!--  Produk -->
+  <section id="produk">
+    <div class="row">
+      <section id="produk-rokok">
+     
+        <div class="container">
+          <div class="row text-center">
+            <!-- Produk -->
+
+            <!-- PT MERAPI AGUNG LESTARI -->
+            <section class="row justify-content-center">
+              <h1 class="produk-judul mb-5 fw-bold">PRODUK PT. MERAPI AGUNG LESTARI</h1>
+
+              <!-- produk aktif -->
+              <div class="row justify-content-center col-12">  
+              <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card">
+                <a href="/visual produk/16NES.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-1"><img src="/visual produk/16NES.jpg" class="card-img-top" alt="Produk Rokok 1"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-1" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                       <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/16NES.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div> 
+                   <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE REGULER</h4>  
+                    <p>NESLITE Reguler adalah produk rokok edisi reguler dari NESLITE yang hadir dengan kemasan berdesain elegan corak putih dan hitam. Desain kemasan ini menampilkan visual logo NESLITE Music Edition yang khas, menambah kesan eksklusif. Setiap kemasan NESLITE Reguler berisi 16 batang rokok yang dibuat dengan bahan berkualitas tinggi untuk memberikan pengalaman merokok yang memuaskan.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok neslite menthol -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card">
+                <a href="/visual produk/16NESM.jpg class=" btn-light data-toggle="modal" data-target="#nesliteModal-2"><img src="/visual produk/16NESM.jpg" class="card-img-top" alt="Produk Rokok 2"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-2" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/16NESM.jpg" class="img-fluid" alt="Detail Produk NESLITE Menthol">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE MENTHOL</h4>  
+                    <p>
+                      NESLITE Menthol adalah salah satu produk unggulan dari NESLITE, yang dikenal dengan kemasannya yang bercorak hijau khas. Setiap kemasan NESLITE Menthol berisi 16 batang rokok yang dirancang untuk memberikan sensasi menthol yang segar dan memuaskan. Dengan bahan berkualitas tinggi, NESLITE Menthol menawarkan pengalaman merokok yang tak tertandingi.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok neslite black edition -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(17, 17, 17);">
+                <a href="/visual produk/16NESB.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-5"><img src="/visual produk/16NESB.jpg" class="card-img-top" alt="Produk Rokok 5"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-5" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/16NESB.jpg" class="img-fluid" alt="Detail Produk NESLITE Black Edition">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                      <h4 class="mb-3">NESLITE BLACK EDITION</h4>  
+                    <p>
+                      NESLITE Black Edition adalah rokok premium dengan kemasan hitam elegan. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, menawarkan pengalaman merokok yang mewah dan memuaskan.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok neslite blue label -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(0, 58, 184);">
+                <a href="/visual produk/16NESBL.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-4"><img src="/visual produk/16NESBL.jpg" class="card-img-top" alt="Produk Rokok 4"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-4" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/16NESBL.jpg" class="img-fluid" alt="Detail Produk NESLITE Blue Label">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE BLUE LABEL</h4>  
+                    <p class="mt-3">
+                      NESLITE Blue Label adalah rokok dengan kemasan gradasi biru yang elegan. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang memuaskan.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- rokok neslite MAX 12-->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(53, 0, 0);">
+                <a href="/visual produk/12nesmax.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-14"><img src="/visual produk/12nesmax.jpg" class="card-img-top" alt="Produk Rokok 6"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-14" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/12nesmax.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE MAX 12</h4>  
+                    <p>
+                      NESLITE MAX 12 adalah edisi Filter MAX dari NESLITE dengan kemasan gradasi merah dan hitam yang khas. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang intens dan memuaskan.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok neslite MAX 20-->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(53, 0, 0);">
+                <a href="/visual produk/20nesmax.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-6"><img src="/visual produk/20nesmax.jpg" class="card-img-top" alt="Produk Rokok 6"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-6" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/20nesmax.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE MAX 20</h4>  
+                    <p>
+                      NESLITE MAX 20 adalah edisi Filter MAX dari NESLITE dengan kemasan gradasi merah dan hitam yang khas. Setiap kemasan berisi 20 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang intens dan memuaskan.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok DJI PEK LAK (286 Kuning) -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(255, 255, 255);">
+                <a href="/visual produk/dpl.jpg" class=" btn-light" data-toggle="modal" data-target="#djipeklakModal-1"><img src="/visual produk/dpl.jpg" class="card-img-top" alt="Produk Rokok 7"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="djipeklakModal-1" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/dpl.jpg" class="img-fluid" alt="Detail Produk 286 Kuning">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">DJI PEK LAK (286 Kuning)</h4>  
+                    <p>DJI PEK LAK (286 Kuning) adalah rokok Kretek dari PT MAL dengan kemasan berwarna kuning yang khas, menampilkan logo 286 dan bintang. Setiap kemasan berisi 12 batang rokok berkualitas tinggi.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          <!-- produk non aktif -->
+          <div class="row justify-content-center col-12">   
+            <!-- rokok neslite red label --> 
+             <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true">
+                <a href="/visual produk/nesredlbl.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-3"><img src="/visual produk/nesredlbl.jpg" class="card-img-top" alt="Produk Rokok 3"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-3" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/nesredlbl.jpg" class="img-fluid" alt="Detail Produk NESLITE Red Label">
+                  </div>
+                      <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE RED LABEL</h4>  
+                    <p>
+                      NESLITE Red Label adalah rokok dengan kemasan putih yang khas, dilengkapi corak visual dan label merah. Setiap kemasan berisi 20 batang rokok berkualitas tinggi, menawarkan pengalaman merokok yang memuaskan.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok neslite Gold --> 
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(161, 159, 159);" data-expired="true">
+                <a href="/visual produk/NES GOLD.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-9"><img src="/visual produk/NES GOLD.jpg" class="card-img-top" alt="Produk Rokok 9"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-9" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NES GOLD.jpg" class="img-fluid" alt="Detail Produk NESLITE Red Label">
+                  </div>
+                     <!-- Kolom untuk informasi produk -->
+                     <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE GOLD</h4>  
+                    <p>
+                      NESLITE GOLD adalah rokok edisi Gold dari NESLITE dengan kemasan putih yang elegan, dilengkapi bercak emas pada tutupnya. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang eksklusif dan memuaskan.</p>
+                    </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok neslite Black Label --> 
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(0, 0, 0);" data-expired="true">
+                <a href="/visual produk/NES BLACK.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-10"><img src="/visual produk/NES BLACK.jpg" class="card-img-top" alt="Produk Rokok 10"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-10" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NES BLACK.jpg" class="img-fluid" alt="Detail Produk NESLITE Red Label">
+                  </div>
+                     <!-- Kolom untuk informasi produk -->
+                     <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE BLACK LABEL</h4>  
+                    <p>NESLITE Black Label merupakan produk rokok edisi Black dari NESLITE memiliki ciri khas pada kemasan Hitam berlabel merah, dan terdapat karakter visual ciri khas Neslite. Setiap kemasannya berisi 16 batang rokok.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <!-- rokok neslite Reguler Music Edition --> 
+             <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(216, 216, 216);" data-expired="true">
+                <a href="/visual produk/NES REG music edition.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-11"><img src="/visual produk/NES REG music edition.jpg" class="card-img-top" alt="Produk Rokok 11"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-11" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NES REG music edition.jpg" class="img-fluid" alt="Detail Produk NESLITE Red Label">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE MUSIC EDITION </h4>  
+                    <p>NESLITE Music Edition adalah rokok Reguler edisi Vidi Vici dengan kemasan putih yang elegan, ditampilkan dengan karakter visual DJ Music yang khas. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, menghadirkan pengalaman merokok yang unik dan memikat bagi para penggemar musik.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok neslite Reguler Generasi 2 --> 
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(240, 238, 238);" data-expired="true">
+                <a href="/visual produk/NES REG 2 edition.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-12"><img src="/visual produk/NES REG 2 edition.jpg" class="card-img-top" alt="Produk Rokok 12"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-12" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NES REG 2 edition.jpg" class="img-fluid" alt="Detail Produk NESLITE Red Label">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE REGULER (Edisi 2)</h4>  
+                    <p>NESLITE Reguler (Edisi 2) adalah rokok dari NESLITE dengan kemasan berwarna putih yang elegan, ditampilkan dengan visual not musik yang unik. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang memuaskan bagi para penggemar rokok reguler.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok neslite Reguler Generasi 1 --> 
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(240, 239, 239);" data-expired="true">
+                <a href="/visual produk/NES REG 1 edition.jpg" class=" btn-light" data-toggle="modal" data-target="#nesliteModal-13"><img src="/visual produk/NES REG 1 edition.jpg" class="card-img-top" alt="Produk Rokok 13"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="nesliteModal-13" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NES REG 1 edition.jpg" class="img-fluid" alt="Detail Produk NESLITE Red Label">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NESLITE REGULER (Edisi 1)</h4>  
+                    <p>NESLITE Reguler (Edisi 1) merupakan produk pertama dari NESLITE, hadir dengan kemasan berwarna putih yang khas. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang memuaskan dan autentik.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok DJI PEK LAK (286 Merah) -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true">
+                <a href="/visual produk/286M12SC.jpg" class=" btn-light" data-toggle="modal" data-target="#djipeklakModal-2"><img src="/visual produk/286M12SC.jpg" class="card-img-top" alt="Produk Rokok 8"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="djipeklakModal-2" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                   <img src="/visual produk/286M12SC.jpg" class="img-fluid" alt="Detail Produk 286 merah">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">DJI PEK LAK (286 Merah)</h4>    
+                    <p>DJI PEK LAK (286 Merah) adalah rokok Kretek dari Dji Pek Lak, hadir dengan kemasan berwarna merah yang khas, serta menampilkan visual logo 286 dan bintang sebagai identitasnya. Setiap kemasan berisi 12 batang rokok berkualitas, memberikan pengalaman merokok yang autentik dan memuaskan.
+
+                    </p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </section>
+            
+          <!-- Produk PT GANDUM -->
+          <section class="row justify-content-center">
+            <!-- produk aktif -->
+            <h1 class="produk-judul mb-5 fw-bold">PRODUK PT. GANDUM</h1>
+
+            <!-- produk aktif -->
+            <div class="row justify-content-center col-12"> 
+            <!-- rokok MAGNUM MAX 12 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: black;">
+                <a href="/visual produk/MX12.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-1"><img src="/visual produk/MX12.jpg" class="card-img-top" alt="Produk Rokok 13"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-1" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MX12.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                  <h4 class="mb-3">BINTANG MAS MAGNUM MAX 12</h4>    
+                  <p>MAGNUM MAX 12 adalah salah satu rokok edisi reguler dari BINTANG MAS MAGNUM Filter. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang memuaskan dan autentik.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok MAGNUM MAX 20 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(29, 3, 3);">
+                <a href="/visual produk/MX20.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-2"><img src="/visual produk/MX20.jpg" class="card-img-top" alt="Produk Rokok 14"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-2" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MX20.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">BINTANG MAS MAGNUM MAX 20</h4>    
+                    <p>MAGNUM MAX 20 merupakan rokok edisi reguler dari BINTANG MAS MAGNUM Filter, hadir dengan kemasan yang elegan. Setiap kemasan berisi 20 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang memuaskan dan autentik.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <!-- rokok NICE BOLD RED-->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(247, 20, 20);">
+                <a href="/visual produk/NICE BOLD RED.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-3"><img src="/visual produk/NICE BOLD RED.jpg" class="card-img-top" alt="Produk Rokok 15"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-3" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NICE BOLD RED.jpg" class="img-fluid" alt="Detail Produk Nice Bold">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NICE BOLD RED</h4>    
+                    <p>NICE BOLD RED adalah salah satu produk rokok Kretek dari Nice Bold, hadir dengan kemasan berwarna merah yang khas. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, menawarkan pengalaman merokok yang kuat dan memikat.
+                    </div>
+                    </p>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok Bintang MAS MAGNUM KRETEK -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: black;">
+                <a href="/visual produk/BMMgmK12.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-5"><img src="/visual produk/BMMgmK12.jpg" class="card-img-top" alt="Produk Rokok 17"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-5" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                  <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/BMMgmK12.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">BINTANG MAS MAGNUM KRETEK </h4>    
+                    <p>Bintang Mas Magnum Kretek merupakan salah satu produk rokok Kretek dari Bintang Mas Magnum. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, menghadirkan pengalaman merokok yang khas dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok BMW MAGNUM Filter 16 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(24, 37, 59);">
+                <a href="/visual produk/MGM Filter 16.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-10"><img src="/visual produk/MGM Filter 16.jpg" class="card-img-top" alt="Produk Rokok 10"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-10" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MGM Filter 16.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">BINTANG MAS MAGNUM FILTER 16</h4>    
+                    <p>MAGNUM FILTER 16 adalah produk rokok filter dari BMW Magnum. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang halus dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok BMW MAGNUM Filter 20 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(24, 37, 59);">
+                <a href="/visual produk/MGF20.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-7"><img src="/visual produk/MGF20.jpg" class="card-img-top" alt="Produk Rokok 16"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-7" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                 
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MGF20.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">BINTANG MAS MAGNUM FILTER 20</h4>    
+                    <p>MAGNUM FILTER 20 adalah produk rokok filter dari BMW Magnum. Setiap kemasan berisi 20 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang halus dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- produk non aktif-->
+          <div class="row justify-content-center col-12">
+           
+            <!-- rokok BINTANG MAS FILTER -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(255, 255, 255);" data-expired="true">
+                <a href="/visual produk/BMF Putih.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-11"><img src="/visual produk/BMF Putih.jpg" class="card-img-top" alt="Produk Rokok 11"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-11" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/BMF Putih.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">BINTANG MAS FILTER 12</h4>    
+                    <p>Bintang Mas Filter adalah produk rokok dengan kemasan berwarna putih yang menampilkan ciri khas bintang dan visual logo Bintang Mas BMW. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang halus dan elegan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok Nice Bold Black -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: black;" data-expired="true">
+                <a href="/visual produk/NICE BOLD.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-16"><img src="/visual produk/NICE BOLD.jpg" class="card-img-top" alt="Produk Rokok 11"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-16" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/NICE BOLD.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">NICE BOLD</h4>    
+                    <p>NICE BOLD adalah produk rokok edisi pertama dari Nice Bold dengan kemasan berwarna hitam. Setiap kemasan berisi 20 batang rokok, menawarkan pengalaman merokok yang kuat dan autentik.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok PINTU GERBANG FILTER -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true">
+                <a href="/visual produk/PGF12.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-6"><img src="/visual produk/PGF12.jpg" class="card-img-top" alt="Produk Rokok 18"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-6" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/PGF12.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">PINTU GERBANG FILTER 12</h4>    
+                    <p>Pintu Gerbang Filter adalah produk rokok dengan kemasan berwarna merah yang menampilkan visual logo gerbang dan bintang sebagai ciri khasnya. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang halus dan elegan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <!-- rokok FIX Menthol -->
+             <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true">
+                <a href="/visual produk/FMT16.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-9"><img src="/visual produk/FMT16.jpg" class="card-img-top" alt="Produk Rokok 16"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-9" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/FMT16.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">FIX MENTHOL</h4>    
+                    <p>FIX Menthol adalah produk rokok menthol dari FIX, dengan kemasan berwarna putih dan hijau sebagai ciri khasnya. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang segar dan menyegarkan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok FIX MAX 16 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(2, 13, 44);" data-expired="true">
+                <a href="/visual produk/FIX MAX 16.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-15"><img src="/visual produk/FIX MAX 16.jpg" class="card-img-top" alt="Produk Rokok 16"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-15" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/FIX MAX 16.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">FIX MAX 16</h4>    
+                    <p>FIX MAX 16 adalah produk rokok kretek edisi MAX dari FIX, dengan kemasan berwarna gradasi biru gelap sebagai ciri khasnya. Setiap kemasan berisi 16 batang rokok, menawarkan pengalaman merokok yang unik dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok FIX MAX 20 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(0, 25, 94);" data-expired="true">
+                <a href="/visual produk/FIX MAX 20.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-8"><img src="/visual produk/FIX MAX 20.jpg" class="card-img-top" alt="Produk Rokok 16"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-8" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/FIX MAX 20.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">FIX MAX 20</h4>    
+                    <p>FIX MAX 20 adalah produk rokok kretek edisi MAX dari FIX, dengan kemasan berwarna gradasi biru gelap sebagai ciri khasnya. Setiap kemasan berisi 20 batang rokok, menawarkan pengalaman merokok yang khas dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok MASADA -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(65, 0, 0);" data-expired="true">
+                <a href="/visual produk/MASADA red.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-12"><img src="/visual produk/MASADA red.jpg" class="card-img-top" alt="Produk Rokok 12"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-12" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MASADA red.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">MASADA</h4>    
+                    <p>MASADA adalah produk rokok dengan kemasan berwarna merah, dilengkapi dengan label MASADA dan visual logo empat roda sebagai ciri khasnya. Setiap kemasan berisi 16 batang rokok berkualitas tinggi, menghadirkan pengalaman merokok yang unik dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok MASADA Slim-->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true">
+                <a href="/visual produk/MASADA Slim.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-14"><img src="/visual produk/MASADA Slim.jpg" class="card-img-top" alt="Produk Rokok 12"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-14" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MASADA Slim.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">MASADA SLIM</h4>    
+                    <p>MASADA Slim adalah produk rokok dengan kemasan berwarna putih, dilengkapi dengan label MASADA dan visual logo empat roda sebagai ciri khasnya. Setiap kemasan berisi 20 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang istimewa dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok Laksa Filter -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true" style="background-color: rgb(247, 20, 20);">
+                <a href="/visual produk/12LAF.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-4"><img src="/visual produk/12LAF.jpg" class="card-img-top" alt="Produk Rokok 16"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-4" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/12LAF.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                  <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">LAKSA FILTER 12</h4>    
+                    <p>LAKSA FILTER adalah produk rokok edisi khas dari LAKSA, dikemas dalam kemasan merah yang ikonik. Setiap kemasan berisi 12 batang rokok berkualitas tinggi, memberikan pengalaman merokok yang memuaskan dengan cita rasa yang khas dan aroma yang istimewa.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- rokok TAMBORA super Slim -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(255, 12, 12);" data-expired="true">
+                <a href="/visual produk/tss.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-13"><img src="/visual produk/tss.jpg" class="card-img-top" alt="Produk Rokok 13"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-13" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/tss.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TAMBORA SUPERSLIM</h4>    
+                    <p>Tambora Superslim adalah produk rokok dengan desain kemasan berwarna merah yang mencerminkan keanggunan dan kesan modern. Dikenal dengan logo khas Tambora, setiap kemasannya mengandung rokok berukuran superslim yang memberikan pengalaman merokok yang elegan dan memuaskan.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok FIXATION super Slim -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" data-expired="true">
+                <a href="/visual produk/FIXATION SS 16 SILVER.jpg" class=" btn-light" data-toggle="modal" data-target="#gandumModal-17"><img src="/visual produk/FIXATION SS 16 SILVER.jpg" class="card-img-top" alt="Produk Rokok 13"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="gandumModal-17" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/FIXATION SS 16 SILVER.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">FIXATION SUPERSLIM</h4>    
+                    <p>FIXATION SuperSlim adalah produk rokok dengan desain kemasan berwarna silver yang elegan, memancarkan kesan modern dan premium. Dilengkapi dengan logo khas FIXATION, setiap kemasan berisi 16 batang rokok, memberikan pengalaman merokok yang halus dan memuaskan bagi para penikmat rokok.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+           
+            </section>
+
+            <!-- PT KARYA BINA SENTAUSA -->
+            <section class="row justify-content-center">
+            <!-- produk aktif -->
+              <h1 class="produk-judul mb-5 fw-bold">PRODUK PT. KARYA BINA SENTAUSA</h1>
+
+              <div class="row justify-content-center col-12">
+              <!-- rokok TOPPAS Coklat -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(206, 102, 17);">
+                <a href="/visual produk/TPSCKLT.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-1"><img src="/visual produk/TPSCKLT.jpg" class="card-img-top" alt="Produk Rokok 9"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-1" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/TPSCKLT.jpg" class="img-fluid" alt="Detail Produk toppas coklat">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TOPPAS COKLAT</h4>    
+                    <p>TOPPAS Coklat adalah produk rokok Kretek dengan desain kemasan berwarna coklat yang khas dari TOPPAS. Setiap kemasan berisi 12 batang rokok, menggabungkan rasa dan aroma yang autentik dengan pengalaman merokok yang memuaskan.
+
+                    </p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <!-- rokok TOPPAS Filter 12 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(252, 27, 27);">
+                <a href="/visual produk/12TPF.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-2"><img src="/visual produk/12TPF.jpg" class="card-img-top" alt="Produk Rokok 10"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-2" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/12TPF.jpg" class="img-fluid" alt="Detail Produk toppas coklat">
+                  </div>
+                   <!-- Kolom untuk informasi produk -->
+                   <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TOPPAS FILTER 12</h4>    
+                    <p>TOPPAS Filter 12 adalah produk rokok edisi filter dari TOPPAS dengan kemasan berwarna merah yang mencolok dan fitur visual 3D logo. Setiap kemasan berisi 12 batang rokok, menyajikan kombinasi sempurna antara kualitas premium dan pengalaman merokok yang memuaskan.</p>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <!-- rokok TOPPAS Filter 16 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(160, 8, 8);">
+                <a href="/visual produk/TPF16.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-3"><img src="/visual produk/TPF16.jpg" class="card-img-top" alt="Produk Rokok 11"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-3" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/TPF16.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TOPPAS FILTER 16</h4>   
+                    <p>TOPPAS Filter 16 adalah produk rokok edisi filter dari TOPPAS dengan desain kemasan yang menonjol dalam warna merah dan fitur visual 3D logo yang mencolok. Setiap kemasan berisi 16 batang rokok, menghadirkan kombinasi sempurna antara keunggulan rasa dan kepuasan merokok yang memenuhi standar tinggi.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <!-- rokok TOPPAS Merah-->
+             <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(223, 0, 0);">
+                <a href="/visual produk/TPM.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-4"><img src="/visual produk/TPM.jpg" class="card-img-top" alt="Produk Rokok 11"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-4" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/TPM.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TOPPAS MERAH</h4>   
+                    <p>TOPPAS Merah adalah produk rokok kretek dengan kemasan berwarna merah yang mencolok, ditandai dengan logo T/P yang tampil dengan latar belakang visual 3D yang unik. Setiap kemasan berisi 12 batang rokok, menawarkan pengalaman merokok yang khas dan memuaskan bagi para penggemar rokok kretek.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok GUNUNG JATI Kretek -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(218, 105, 0);">
+                <a href="/visual produk/16GJK 1.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-5"><img src="/visual produk/16GJK 1.jpg" class="card-img-top" alt="Produk Rokok 10"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-5" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/16GJK 1.jpg" class="img-fluid" alt="Detail Produk NESLITE Reguler">
+                  </div>
+                     <!-- Kolom untuk informasi produk -->
+                     <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">GUNUNG JATI KRETEK</h4>   
+                    <p>GUNUNG JATI Kretek adalah produk rokok kretek dengan kemasan yang menampilkan visual alami dari tembakau. Setiap kemasan berisi 16 batang rokok, menyajikan pengalaman merokok yang autentik dan khas dari GUNUNG JATI.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- produk non aktif -->
+          <div class="row justify-content-center col-12">
+            <!-- rokok TUGUMAS -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(196, 128, 3);" data-expired="true">
+                <a href="/visual produk/TUGUMAS.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-6"><img src="/visual produk/TUGUMAS.jpg" class="card-img-top" alt="Produk Rokok 5"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-6" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/TUGUMAS.jpg" class="img-fluid" alt="Detail Produk toppas coklat">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TUGUMAS</h4>   
+                    <p >TUGUMAS Kretek adalah rokok kretek dengan kemasan yang menampilkan visual alami dari tembakau. Setiap kemasan berisi 16 batang rokok, menghadirkan pengalaman merokok yang otentik dan khas dari TUGUMAS.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- rokok TOPPAS Adya -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(172, 13, 13);" data-expired="true">
+                <a href="/visual produk/TPADYA.jpg" class=" btn-light" data-toggle="modal" data-target="#toppasModal-7"><img src="/visual produk/TPADYA.jpg" class="card-img-top" alt="Produk Rokok 5"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="toppasModal-7" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/TPADYA.jpg" class="img-fluid" alt="Detail Produk toppas coklat">
+                  </div>
+                    <!-- Kolom untuk informasi produk -->
+                    <div class="col-md-6 text-md-start mt-5">
+                    <h4 class="mb-3">TOPPAS ADYA</h4>   
+                    <p >Toppas Adya adalah rokok kretek dengan kemasan khas bergradasi merah-orange dan menampilkan visual logo ADYA. Setiap kemasannya berisi 12 batang rokok, memberikan pengalaman merokok yang unik dan berkelas dari Toppas.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </section>
+
+            <!-- PT CIPTA KRETEK NUSANTARA -->
+            <section class="row justify-content-center">
+            <!-- produk aktif -->
+              <h1 class="produk-judul mb-5 fw-bold">PRODUK PT. CIPTA KRETEK NUSANTARA</h1>
+              <div class="row justify-content-center col-12">
+                
+               <!-- rokok 72 kretek -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(255, 102, 0);">
+                <a href="/visual produk/72kretek.jpg" class=" btn-light" data-toggle="modal" data-target="#kretek72Modal-1"><img src="/visual produk/72kretek.jpg" class="card-img-top" alt="Produk Rokok 23"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="kretek72Modal-1" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                      <div class="col-md-6">
+                        <img src="/visual produk/72kretek.jpg" class="img-fluid" alt="Detail Produk KRETEK 72">
+                      </div>
+                      <!-- Kolom untuk informasi produk -->
+                      <div class="col-md-6 text-lg-start mt-5">
+                        <h4 class="mb-3">TUJUH DUA KRETEK</h4>   
+                        <p>TUJUH DUA (72) adalah rokok kretek dengan kemasan berwarna coklat yang menampilkan visual logo 72 dan bintang sebagai ciri khasnya. Setiap kemasannya berisi 12 batang rokok, menghadirkan pengalaman merokok yang unik dan memuaskan bagi para pecinta kretek.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            </section>
+
+             <!-- PT MENARA KARTIKA BUANA -->
+             <section class="row justify-content-center">
+              <!-- produk non aktif -->
+              <h1 class="produk-judul mb-5 fw-bold">PRODUK PT. MENARA KARTIKA BUANA</h1>
+              <div class="row justify-content-center col-12"> 
+               <!-- rokok Menara Kathulistiwa Merah 12 -->
+            <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+              <div class="card" style="background-color: rgb(202, 20, 20);" data-expired="true">
+                <a href="/visual produk/MK12FK.jpg" class=" btn-light" data-toggle="modal" data-target="#menaraModal-1"><img src="/visual produk/MK12FK.jpg" class="card-img-top" alt="Produk Rokok 22"></a>
+              </div>
+            </div>
+            <!-- Modal Gambar Detail -->
+            <div class="modal fade" id="menaraModal-1" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  
+                  <div class="modal-body">
+                    <div class="row">
+                      <!-- Kolom untuk gambar produk -->
+                  <div class="col-md-6">
+                    <img src="/visual produk/MK12FK.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                  </div>
+                     <!-- Kolom untuk informasi produk -->
+                  <div class="col-md-6 text-md-start mt-5">
+                  <h4 class="mb-3">MENARA KATULISTIWA 12 MERAH</h4>   
+                  <p>Menara Katulistiwa 12 Merah adalah produk rokok kretek dari MENARA dengan kemasan berwarna merah yang mencerminkan keunggulan dan karakteristik unggul dari MENARA. Setiap kemasan berisi 12 batang rokok, menawarkan pengalaman merokok yang memuaskan dengan cita rasa yang khas dan aroma yang menggoda.</p>
+                  </div>
+                  </div>
+                  </div>
+                  <div class="modal-footer">
+                    <!-- Tombol untuk kembali ke halaman produk -->
+                    <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+             <!-- menara katulistiwa merah 16 -->
+          <div class="col-sm-3 col-md-2 col-lg-1 mb-3">
+            <div class="card" style="background-color: rgb(255, 8, 0);" data-expired="true">
+              <a href="/visual produk/MK16FK.jpg" class=" btn-light" data-toggle="modal" data-target="#menaraModal-2"><img src="/visual produk/MK16FK.jpg" class="card-img-top" alt="Produk Rokok 22"></a>
+            </div>
+          </div>
+          <!-- Modal Gambar Detail -->
+          <div class="modal fade" id="menaraModal-2" tabindex="-1" role="dialog" aria-labelledby="nesliteModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                
+                <div class="modal-body">
+                  <div class="row">
+                    <!-- Kolom untuk gambar produk -->
+                <div class="col-md-6">
+                  <img src="/visual produk/MK16FK.jpg" class="img-fluid" alt="Detail Produk Bintang Mas Magnum Kretek">
+                </div>
+                   <!-- Kolom untuk informasi produk -->
+                <div class="col-md-6 text-md-start mt-5">
+                  <h4 class="mb-3">MENARA KATULISTIWA 16 MERAH</h4>   
+                  <p>Menara Katulistiwa 16 Merah adalah produk rokok kretek dari MENARA dengan kemasan berwarna merah yang mencerminkan keunggulan dan karakteristik unggul dari MENARA. Setiap kemasan berisi 16 batang rokok, memberikan pengalaman merokok yang memuaskan dengan cita rasa yang khas dan aroma yang menggoda.</p>
+                </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                  <!-- Tombol untuk kembali ke halaman produk -->
+                  <a href="#" class="btn btn-danger" data-dismiss="modal">Kembali</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          </div>
+        </div>
+            </section>
+            
+            <section id="peringatan">
+            <div class="row mt-5 col-lg-12 mx-auto mb-3">
+              <img src="/lainnya/Peringatan_karena_merokok_saya_terkena_kanker_tenggorokan.jpg" alt="">
+            </div>
+            </section>
+            <!-- end kartu produk -->
+          </div>
+      </section>
+    </div>
+</section>
+<!-- End  Produk -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+      <!-- FOOTER -->
+   <footer id="menuFooterSection" class="container-fluid py-5">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-12 mx-auto">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-12 col-12 mb-3 footer-menu-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">TENTANG KAMI</div>
+                <ul class="footer-links">
+                  <li><a href="/index.html">Beranda</a></li>
+                  <li><a href="/profil/profil.html">Profil</a></li>
+                  <li><a href="/profil/pemasaran.html">Pemasaran</a></li>
+                  <li><a href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                  <li><a href="/profil/sosial.html">Partisipasi Sosial</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">PRODUK KAMI</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/produk/produk.html">Produk</a></li>
+                  <li><a href="/login/login2.html">Branding</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">MEDIA</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/events/event.html">Event</a></li>
+                  <li><a href="/berita/berita.html">Berita</a></li>
+                  <li><a href="/maps/maps.html">Peta</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">KARYAWAN</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/kontak/karir.html">Karir</a></li>
+                  <li><a href="/login/login.html">Download</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
+            <div class="contact-135 mb-5">
+              <div class="font-weight-bold title text-uppercase fw-bold text-warning">HUBUNGI KAMI</div>
+              <ul class="footer-links">
+                <!-- <li><a href="/news">What's On</a></li> -->
+                <li><a href="/kontak/kontak.html">Kontak Form</a></li>
+              </ul>
+            </div>
+            <div class="address">
+              <p><strong>Alamat : </strong>Ruko Limus Pratama, Blok C No 30,, Jl. Raya Narogong, Limus Nunggal, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i data-feather="instagram"></i></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i data-feather="facebook"></i></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/aboutthree_m" target="_blank"><i data-feather="twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i data-feather="youtube"></i></a>
+              </li>
+              <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copy py-3">© Copyright PT Merapi Maju Makmur 2023. All Right Reserved</div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Arrow Up -->
+    <div id="toTop" class="toptip bounce" title="Back to Top"><i data-feather="chevron-up"></i></div>
+    <!-- Arrow Up end-->
+
+    <!-- data expired -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var produkCards = document.querySelectorAll('.card[data-expired="true"]');
+    
+      produkCards.forEach(function (card) {
+        card.classList.add("expired-product");
+      });
+    });
+    </script>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS, Popper.js, jQuery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- MY JAVASCRIPT -->
+    <script src="/produk/script.js"></script>
+
+    <!-- jQuery AU-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $("#toTop").fadeIn();
+          } else {
+            $("#toTop").fadeOut();
+          }
+        });
+
+        // Scroll to top with a smooth transition
+        $("#toTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 800); // 800ms for the scroll duration
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

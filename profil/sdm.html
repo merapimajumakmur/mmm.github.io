@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- my style -->
+    <link rel="stylesheet" href="/profil/style.css" />
+
+    <title>PROFIL - SDM PT MERAPI MAJU MAKMUR</title>
+
+    <link rel="shortcut icon" href="/img/favicon mmm.jpg" type="image/x-icon" />
+
+    <!-- KONTEN SDM -->
+    <style>
+      #sdm-container {
+        max-width: 800px;
+        margin: 20px auto;
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+      }
+
+      #sdm-photo {
+        border-radius: 50%;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      #sdm-photo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 50px rgb(77, 24, 24);
+      }
+
+      #sdm-data {
+        background-color: #e9dddd;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      @media screen and (min-width: 600px) {
+        #sdm-container {
+          text-align: left;
+        }
+      }
+    </style>
+
+    <!-- /* Animasi loading */ -->
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 10vw; /* Gunakan viewport width (vw) untuk lebar */
+        height: 10vw; /* Gunakan viewport width (vw) untuk tinggi */
+        max-width: 50px; /* Batasi lebar maksimum */
+        max-height: 50px; /* Batasi tinggi maksimum */
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none; /* Sembunyikan loader awalnya */
+      }
+
+      /* Tambahkan media queries untuk ukuran layar tertentu */
+      @media screen and (max-width: 768px) {
+        .loader {
+          /* Sesuaikan lebar dan tinggi sesuai kebutuhan */
+          width: 20vw;
+          height: 20vw;
+        }
+      }
+
+      /* Tambahkan aturan media queries untuk layar seluler */
+      @media screen and (max-width: 576px) {
+        .loader {
+          width: 20vw; /* Sesuaikan lebar untuk layar seluler */
+          height: 20vw; /* Sesuaikan tinggi untuk layar seluler */
+          max-width: 40px; /* Sesuaikan lebar maksimum untuk layar seluler */
+          max-height: 40px; /* Sesuaikan tinggi maksimum untuk layar seluler */
+        }
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- ToTop -->
+    <style>
+      #toTop {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #a30c0c;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      #toTop:hover {
+        background-color: #00b7ff;
+        color: #000000;
+        background-position: contain;
+        transform: scale(1.1);
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader" class="loader"></div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" id="mainNavbar">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html"><img src="/img/MMM_LOGO_2.png" alt="Logo" width="90" height="66" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item active">
+              <a class="nav-link fw-bold" aria-current="page" href="/index.html">BERANDA</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> TENTANG KAMI </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/profil/profil.html">Profil Perusahaan</a></li>
+                <li><a class="dropdown-item" href="/profil/pemasaran.html">Wilayah Pemasaran</a></li>
+                <li><a class="dropdown-item active" href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                <li><a class="dropdown-item" href="/profil/sosial.html">Partisipasi & Peduli Sosial</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="/produk/produk.html">PRODUK</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> MEDIA </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/event/events.html">Event</a></li>
+                <li><a class="dropdown-item" href="/berita/berita.html">Berita</a></li>
+                <li><a class="dropdown-item" href="/maps/maps.html">Maps</a></li>
+                <li></li>
+              </ul>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link fw-bold" href="/kontak/kontak.html">KONTAK KAMI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav end -->
+
+    <!-- Menu section start -->
+    <section id="outerMainSection" style="background-image: url('/img/background\ -\ sdm\ MMM.jpg')" class="content page py-5 container-fluid">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 row-container px-0">
+          <nav aria-label="breadcrumb">
+            <ol id="breadcrumb" class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" class="text-white">Tentang Kami</a></li>
+              <li class="breadcrumb-item text-warning">Sumber Daya Manusia</li>
+            </ol>
+          </nav>
+          <div class="card bg-white">
+            <div class="row mb-3 position-relative header-container mx-0">
+              <div class="icon-fly">
+                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="100" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16" style="color: #b30a0a">
+                  <path
+                    d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"
+                  />
+                </svg>
+              </div>
+              <div class="col d-flex align-items-end">
+                <h1 class="font-weight-bold text-blue">Sumber Daya Manusia</h1>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 sidebar-container mb-4">
+                  <div class="col-12">
+                    <div class="pin-wrapper">
+                      <h6 class="mb-none"><strong>TENTANG KAMI</strong></h6>
+                      <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+                      <h6><strong>PROFIL PERUSAHAAN</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/profil.html">Sejarah, Visi, dan Misi</a></p>
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="/profil/makna logo.html">Makna, dan karakteristik Logo</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/struktur perusahaan.html">Struktur Organisasi Perusahaan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/pemasaran.html">Jaringan Distribusi Perusahaan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="#">Sumber Daya Manusia</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/sosial.html">Bentuk Partisipasi Sosial Perusahaan</a></p>
+                      </ul>
+                      <h6><strong>MANAJEMEN</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/direksi.html">Direksi</a></p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 sidebar-container">
+                  <!-- Konten Utama -->
+                  <section id="sdm">
+                    <div class="container">
+                      <div class="container-fluid justify-content-center bg-light">
+                        <div class="row align-items-center">
+                          <div class="col-md-6">
+                            <img id="sdm-photo" src="/lainnya/EGPTMMM2020 SDM.jpg" alt="Seluruh Karyawan" />
+                            <div id="sdm-data">
+                              <h5>Data Total Karyawan Pada bulan Juli 2024 PT Merapi Maju Makmur sejumlah 533 orang dengan komposisi jenis kelamin sebagai berikut :</h5>
+                              <!-- Data jumlah karyawan disini -->
+                              <p class="mt-3">Laki-laki: 521 orang</p>
+                              <p class="mb-5">Perempuan: 12 orang</p>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div id="sdm-data">
+                              <div class="mb-3" style="font-style: italic">DETAIL DATA JUMLAH KARYAWAN DI SETIAP KANTOR WILAYAH :</div>
+                              <div class="mb-4"><strong>UNIT PUSAT : 40 orang</strong></div>
+                              <p><strong>UNIT WILAYAH JAKARTA 1 : 36 orang</strong></p>
+                              <p><strong>UNIT WILAYAH JAKARTA 2 : 33 orang</strong></p>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" id="rDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">UNIT WILAYAH TANGERANG : 42 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Tangerang : 31 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Cikupa : 11 orang</p></li>
+                                </ul>
+                              </div>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" id="rDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">UNIT WILAYAH BEKASI : 43 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Bekasi : 23 orang</p></li>
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Karawang : 20 orang</p></li>
+                                </ul>
+                              </div>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" href="#" id="rDropdown" role="button" data-bs-toggle="dropdown">UNIT WILAYAH BANDUNG : 74 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Bandung : 33 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Padalarang : 10 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Sumedang : 19 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Subang : 12 orang</p></li>
+                                </ul>
+                              </div>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" href="#" id="rDropdown" role="button" data-bs-toggle="dropdown">UNIT WILAYAH BANTEN : 80 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Serang : 25 orang</p></li>
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Pandeglang : 28 orang</p></li>
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Malingping : 15 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Labuan : 12 orang</p></li>
+                                </ul>
+                              </div>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" href="#" id="rDropdown" role="button" data-bs-toggle="dropdown">UNIT WILAYAH BOGOR : 75 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Bogor : 38 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Cianjur : 17 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Leuwiliang : 9 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Sukabumi : 11 orang</p></li>
+                                </ul>
+                              </div>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" id="rDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">UNIT WILAYAH DEPOK : 33 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Depok : 24 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Cileungsi : 9 orang</p></li>
+                                </ul>
+                              </div>
+                              <div class="dropdown fw-bold">
+                                <p class="dropdown-toggle" href="#" id="rDropdown" role="button" data-bs-toggle="dropdown">UNIT WILAYAH CIREBON : 77 orang</p>
+                                <ul class="dropdown-menu" aria-labelledby="dropdown">
+                                  <li><p class="dropdown-item fw-bold">Unit Pos Cirebon : 29 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Majalengka : 17 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Kuningan : 15 orang</p></li>
+                                  <li><p class="dropdown-item">Stock Point Indramayu : 16 orang</p></li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+    <!-- FOOTER -->
+    <footer id="menuFooterSection" class="container-fluid py-5">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-12 col-12 mx-auto">
+          <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-12 col-12 mb-3 footer-menu-container">
+              <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                  <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">TENTANG KAMI</div>
+                  <ul class="footer-links">
+                    <li><a href="/index.html">Beranda</a></li>
+                    <li><a href="/profil/profil.html">Profil</a></li>
+                    <li><a href="/profil/pemasaran.html">Pemasaran</a></li>
+                    <li><a href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                    <li><a href="/profil/sosial.html">Partisipasi Sosial</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                  <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">PRODUK KAMI</div>
+                  <ul class="footer-links">
+                    <!-- <li><a href="/news">What's On</a></li> -->
+                    <li><a href="/produk/produk.html">Produk</a></li>
+                    <li><a href="/login/login2.html">Branding</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                  <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">MEDIA</div>
+                  <ul class="footer-links">
+                    <!-- <li><a href="/news">What's On</a></li> -->
+                    <li><a href="/events/event.html">Event</a></li>
+                    <li><a href="/berita/berita.html">Berita</a></li>
+                    <li><a href="/maps/maps.html">Peta</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                  <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">KARYAWAN</div>
+                  <ul class="footer-links">
+                    <!-- <li><a href="/news">What's On</a></li> -->
+                    <li><a href="/kontak/karir.html">Karir</a></li>
+                    <li><a href="/login/login.html">Download</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
+              <div class="contact-135 mb-5">
+                <div class="font-weight-bold title text-uppercase fw-bold text-warning">HUBUNGI KAMI</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/kontak/kontak.html">Kontak Form</a></li>
+                </ul>
+              </div>
+              <div class="address">
+                <p><strong>Alamat : </strong>Ruko Limus Pratama, Blok C No 30,, Jl. Raya Narogong, Limus Nunggal, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
+              </div>
+              <ul class="footer-list">
+                <li>
+                  <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i data-feather="instagram"></i></a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i data-feather="facebook"></i></a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/aboutthree_m" target="_blank"><i data-feather="twitter"></i></a>
+                </li>
+                <li>
+                  <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i data-feather="youtube"></i></a>
+                </li>
+                <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-copy py-3">© Copyright PT Merapi Maju Makmur 2023. All Right Reserved</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Arrow Up -->
+    <div id="toTop" class="toptip bounce" title="Back to Top"><i data-feather="chevron-up"></i></div>
+    <!-- Arrow Up end-->
+
+    <!-- Scripts Modal Struktur-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+
+    <script>
+      document.querySelector(".img-thumbnail").addEventListener("click", () => {
+        document.getElementById("modalImage").src = document.querySelector(".img-thumbnail").src;
+      });
+
+      const modalImage = document.getElementById("modalImage");
+      let scale = 1;
+      let isDragging = false;
+      let startX,
+        startY,
+        currentX = 0,
+        currentY = 0;
+
+      function zoomImage(scaleValue) {
+        scale = scaleValue;
+        modalImage.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
+      }
+
+      document.getElementById("zoomIn").addEventListener("click", () => {
+        zoomImage(scale + 0.1);
+      });
+
+      document.getElementById("zoomOut").addEventListener("click", () => {
+        if (scale > 1) {
+          zoomImage(scale - 0.1);
+        }
+      });
+
+      modalImage.addEventListener("wheel", (e) => {
+        e.preventDefault();
+        if (e.deltaY < 0) {
+          zoomImage(scale + 0.1);
+        } else if (e.deltaY > 0 && scale > 1) {
+          zoomImage(scale - 0.1);
+        }
+      });
+
+      modalImage.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+        modalImage.style.cursor = "grabbing";
+      });
+
+      modalImage.addEventListener("mouseup", () => {
+        isDragging = false;
+        modalImage.style.cursor = "move";
+      });
+
+      modalImage.addEventListener("mousemove", (e) => {
+        if (isDragging) {
+          currentX = e.clientX - startX;
+          currentY = e.clientY - startY;
+          modalImage.style.transform = `scale(${scale}) translate(${currentX}px, ${currentY}px)`;
+        }
+      });
+
+      modalImage.addEventListener("mouseleave", () => {
+        isDragging = false;
+        modalImage.style.cursor = "move";
+      });
+    </script>
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- MY JAVASCRIPT -->
+    <script src="/profil/script.js"></script>
+
+    <!-- jQuery AU-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $("#toTop").fadeIn();
+          } else {
+            $("#toTop").fadeOut();
+          }
+        });
+
+        // Scroll to top with a smooth transition
+        $("#toTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 800); // 800ms for the scroll duration
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

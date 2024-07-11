@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <title>BRANDING PROMOSI - PT MERAPI MAJU MAKMUR</title>
+    <!-- my style -->
+    <link rel="stylesheet" href="/promosi/style.css" />
+
+    <link rel="shortcut icon" href="/img/favicon mmm.jpg" type="image/x-icon" />
+
+    <!-- /* Animasi loading */ -->
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 10vw; /* Gunakan viewport width (vw) untuk lebar */
+        height: 10vw; /* Gunakan viewport width (vw) untuk tinggi */
+        max-width: 50px; /* Batasi lebar maksimum */
+        max-height: 50px; /* Batasi tinggi maksimum */
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none; /* Sembunyikan loader awalnya */
+      }
+    
+      /* Tambahkan media queries untuk ukuran layar tertentu */
+      @media screen and (max-width: 768px) {
+        .loader {
+          /* Sesuaikan lebar dan tinggi sesuai kebutuhan */
+          width: 20vw;
+          height: 20vw;
+        }
+      }
+    
+        /* Tambahkan aturan media queries untuk layar seluler */
+       @media screen and (max-width: 576px) {
+        .loader {
+        width: 20vw; /* Sesuaikan lebar untuk layar seluler */
+        height: 20vw; /* Sesuaikan tinggi untuk layar seluler */
+        max-width: 40px; /* Sesuaikan lebar maksimum untuk layar seluler */
+        max-height: 40px; /* Sesuaikan tinggi maksimum untuk layar seluler */
+    }
+  }
+
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+    
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+    </style>
+
+    <!-- ToTop -->
+    <style>
+      #toTop {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #a30c0c;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      #toTop:hover {
+        background-color: #00b7ff;
+        color: #000000;
+        background-position: contain;
+        transform: scale(1.1);
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="loader" class="loader"></div>
+
+<!-- navbar start-->
+<nav class="navbar">
+  <a href="/index.html" class="navbar-logo"><img src="/img/MMM_LOGO_2.png" alt="Logo" width="90" height="66" /></a>
+  <div class="navbar-nav">
+    <a href="/index.html#">BERANDA</a>
+    <a href="/index.html#profil">PROFIL</a>
+    <a href="/index.html#media">MEDIA</a>
+    <a href="/index.html#news">BERITA</a>
+    <a href="/kontak/kontak.html">KONTAK</a>
+  </div>
+  <div class="navbar-extra">
+    <a href="#" id="hamburger-menu"> <i data-feather="menu"></i></a>
+  </div>
+</nav>
+<!-- navbar end-->
+
+    <!-- Hero Section Start -->
+    <section class="hero-branding" id="home">
+      <main class="content">
+        <h1>BRANDING PROMOSI<span>MMM</span></h1>
+        <p class>#sukses tanpa batas.</p>
+    
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Menu section start -->
+    <section id="barang" class="barang">
+      <h2><span>Branding Promosi</span> Kami</h2>
+      <p style="font-style: italic">
+        Branding Promosi merupakan upaya yang kami lakukan untuk memperkenalkan secara luas produk-produk unggulan kami kepada masyarakat. Melalui berbagai strategi promosi yang kami rancang dengan cermat, kami berkomitmen untuk
+        meningkatkan kesadaran dan kepercayaan konsumen terhadap merek kami. Dengan fokus pada kreativitas dan keaslian, kami menghadirkan promosi yang menarik dan informatif untuk membangun citra perusahaan yang kuat dan memperluas
+        jangkauan pasar kami
+      </p>
+      <h2></h2>
+      <p style="font-style: italic">Dengan demikian, Berikut beberapa dokumentasi hasil produk branding yang telah terealisasikan :</p>
+
+      <div class="company-selector">
+        <label for="company">TAHUN :</label>
+        <select id="company" onchange="loadCompanyInfo()">
+          <option value="company1">SEMUA TAHUN</option>
+          <option value="company2">2024</option>
+        </select>
+      </div>
+
+      <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <h3>Kategori Barang</h3>
+          <ul id="categoryList">
+            <!-- Kategori barang akan diisi secara dinamis berdasarkan perusahaan yang dipilih -->
+          </ul>
+        </div>
+
+        <!-- Gallery Cards -->
+        <div class="gallery" id="companyGallery">
+          <!-- Ini akan diisi secara dinamis berdasarkan perusahaan yang dipilih -->
+        </div>
+      </div>
+    </section>
+    <!-- Menu section end -->
+
+    <!-- Modals Tahun 2024-->
+    <!-- Modal 1 -->
+    <div class="modal" id="myModal1" onclick="closeModal('myModal1')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal1')">&times;</span>
+        <img src="/branding/2024 branding parasol nes 1.jpeg" alt="Gambar 1" />
+        <img src="/branding/2024 branding parasol nes 2.jpeg" alt="Gambar 2" />
+        <img src="/branding/2024 branding parasol nes 3.jpeg" alt="Gambar 3" />
+        <img src="/branding/2024 branding parasol nes 4.jpeg" alt="Gambar 4" />
+
+        <!-- Add more images for modal 1 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal" id="myModal2" onclick="closeModal('myModal2')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal2')">&times;</span>
+        <img src="/branding/2024 branding parasol mgmx 1.jpeg" alt="Gambar 1" />
+        <img src="/branding/2024 branding parasol mgmx 2.jpeg" alt="Gambar 2" />
+        <img src="/branding/2024 branding parasol mgmx 3.jpeg" alt="Gambar 3" />
+        <img src="/branding/2024 branding parasol mgmx 4.jpeg" alt="Gambar 4" />
+        <img src="/branding/2024 branding parasol mgmx 5.jpeg" alt="Gambar 5" />
+        <img src="/branding/2024 branding parasol mgmx 6.jpeg" alt="Gambar 6" />
+
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal" id="myModal3" onclick="closeModal('myModal3')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal3')">&times;</span>
+        <img src="/branding/2024 branding gasebo nesmax 1.jpeg" alt="Gambar 1" />
+
+        <!-- Add more images for modal 3 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 4 -->
+    <div class="modal" id="myModal4" onclick="closeModal('myModal4')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal4')">&times;</span>
+        <img src="/branding/2024 branding layar rombong 1.jpg" alt="Gambar 1" />
+        <img src="/branding/2024 branding layar rombong 2.jpg" alt="Gambar 2" />
+        <img src="/branding/2024 branding layar rombong 3.jpg" alt="Gambar 3" />
+        <img src="/branding/2024 branding layar rombong 4.jpg" alt="Gambar 4" />
+        <img src="/branding/2024 branding layar rombong 5.jpg" alt="Gambar 5" />
+
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal Tahun 2023 -->
+    <!-- Modal 5 -->
+    <div class="modal" id="myModal5" onclick="closeModal('myModal5')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal5')">&times;</span>
+        <img src="/branding/2023 gasebo nes 1.jpeg" alt="Gambar 1" />
+        <img src="/branding/2023 gasebo nes 2.jpg" alt="Gambar 2" />
+        <img src="/branding/2023 gasebo nes 3.jpeg" alt="Gambar 3" />
+        <img src="/branding/2023 gasebo nes 4.jpg" alt="Gambar 4" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 6 -->
+    <div class="modal" id="myModal6" onclick="closeModal('myModal6')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal6')">&times;</span>
+        <img src="/branding/2023 spanduk nes 1.jpg" alt="Gambar 1" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 7 -->
+    <div class="modal" id="myModal7" onclick="closeModal('myModal7')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal7')">&times;</span>
+        <img src="/branding/2023 umbul nes brand 1.jpeg" alt="Gambar 1" />
+
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 8 -->
+    <div class="modal" id="myModal8" onclick="closeModal('myModal8')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal8')">&times;</span>
+        <img src="/branding/2023 umbul mgmx 1.jpg" alt="Gambar 1" />
+        <img src="/branding/2023 umbul mgmx 2.jpg" alt="Gambar 2" />
+        <img src="/branding/2023 umbul mgmx 3.jpg" alt="Gambar 3" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 9 -->
+    <div class="modal" id="myModal9" onclick="closeModal('myModal9')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal9')">&times;</span>
+        <img src="/branding/2023 banner nes 1.jpeg" alt="Gambar 1" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+     <!-- Modal 10 -->
+     <div class="modal" id="myModal10" onclick="closeModal('myModal10')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal10')">&times;</span>
+        <img src="/branding/2024 branding gasebo Nes Menthol.jpeg" alt="Gambar 1" />
+        <img src="/branding/2024 GASEBO NES RAMFES PUNCAK BOGOR.jpeg" alt="Gambar 2" />
+        <img src="/branding/2024 GASEBO NES RAMFES PUNCAK BOGOR 2.jpeg" alt="Gambar 3" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+     <!-- Modal 11 -->
+     <div class="modal" id="myModal11" onclick="closeModal('myModal11')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal11')">&times;</span>
+        <img src="/branding/2024 SPANDUK MUDIK BARENG MMM.jpeg" alt="Gambar 1" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+     <!-- Modal 12 -->
+     <div class="modal" id="myModal12" onclick="closeModal('myModal12')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal12')">&times;</span>
+        <img src="/branding/2024 GASEBO NES RAMFES PUNCAK BOGOR.jpeg" alt="Gambar 1" />
+        <img src="/branding/2024 GASEBO NES RAMFES PUNCAK BOGOR 2.jpeg" alt="Gambar 2" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 13 -->
+    <div class="modal" id="myModal13" onclick="closeModal('myModal13')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal13')">&times;</span>
+        <img src="/branding/2024 SPANDUK SMI PUASA NESLITE 5.jpeg" alt="Gambar 1" />
+      
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 14 -->
+    <div class="modal" id="myModal14" onclick="closeModal('myModal14')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal14')">&times;</span>
+        <img src="/branding/2024 SPANDUK SMI PUASA MGMMAX 3.jpeg" alt="Gambar 1" />
+       
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 15 -->
+    <div class="modal" id="myModal15" onclick="closeModal('myModal15')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal15')">&times;</span>
+        <img src="/branding/2018 gasebo nes 1.jpg" alt="Gambar 1" />
+        <img src="/branding/2018 gasebo nes 2.jpg" alt="Gambar 2" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 16 -->
+    <div class="modal" id="myModal16" onclick="closeModal('myModal16')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal16')">&times;</span>
+        <img src="/branding/2013 layar rombong 1.jpg" alt="Gambar 1" />
+        <img src="/branding/2013 layar rombong 2.jpg" alt="Gambar 2" />
+        <img src="/branding/2013 layar rombong 3.jpg" alt="Gambar 3" />
+        <img src="/branding/2013 layar rombong 4.jpg" alt="Gambar 4" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 17 -->
+    <div class="modal" id="myModal17" onclick="closeModal('myModal17')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal17')">&times;</span>
+        <img src="/branding/2011 event mobil brand 1.jpg" alt="Gambar 1" />
+        <img src="/branding/2012 event mobil brand 1.jpg" alt="Gambar 2" />
+        <img src="/branding/2012 event mobil brand 2.jpg" alt="Gambar 3" />
+        <img src="/branding/2012 event mobil brand 3.jpg" alt="Gambar 4" />
+        <img src="/branding/2012 event mobil brand 4.jpg" alt="Gambar 5" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+
+    <!-- Modal 18 -->
+    <div class="modal" id="myModal18" onclick="closeModal('myModal18')">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('myModal18')">&times;</span>
+        <img src="/branding/2010 poster nes 2.JPG" alt="Gambar 1" />
+        <img src="/branding/2010 poster nes 3.JPG" alt="Gambar 2" />
+        <img src="/branding/2010 poster nes 4.JPG" alt="Gambar 3" />
+        <img src="/branding/2010 poster nes 8.JPG" alt="Gambar 4" />
+        <!-- Add more images for modal 2 if needed -->
+      </div>
+    </div>
+    <!-- Menu Modal section end -->
+
+    <!-- Footer -->
+    <footer>
+      <div class="social">
+        <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i data-feather="instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i data-feather="facebook"></i></a>
+        <a href="https://twitter.com/aboutthree_m" target="_blank"><i data-feather="twitter"></i></a>
+        <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i data-feather="youtube"></i></a>
+      </div>
+      <div class="links">
+        <a href="/index.html#home">HOME</a>
+        <a href="/index.html#profil">PROFIL</a>
+        <a href="/index.html#media">MEDIA</a>
+        <a href="/index.html#news">BERITA</a>
+        <a href="/kontak/kontak.html">KONTAK</a>
+      </div>
+      <div class="credit">
+        <p>Created by <a href="" target="_blank">Promosi PT. Merapi Maju Makmur</a>. &copy; 2024.</p>
+      </div>
+    </footer>
+
+    <!-- Arrow Up -->
+    <div id="toTop" class="toptip bounce" title="Back to Top"><i data-feather="chevron-up"></i></div>
+    <!-- Arrow Up end-->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+
+    <!-- my javascript -->
+    <script src="/promosi/script.js"></script>
+
+    <!-- jQuery AU-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $("#toTop").fadeIn();
+          } else {
+            $("#toTop").fadeOut();
+          }
+        });
+
+        // Scroll to top with a smooth transition
+        $("#toTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 800); // 800ms for the scroll duration
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

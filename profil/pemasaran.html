@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- feather icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- my style -->
+    <link rel="stylesheet" href="/profil/style.css" />
+
+    <title>PROFIL - Jaringan Distribusi PT MERAPI MAJU MAKMUR</title>
+
+    <link rel="shortcut icon" href="/img/favicon mmm.jpg" type="image/x-icon" />
+
+    <!-- style konten pemasaran -->
+    <style>
+        #wilayah-container {
+            max-width: 800px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 20px;
+  
+        }
+  
+        .wilayah {
+        background-color: rgb(245, 245, 245);
+        padding: 20px;
+        border-radius: 30px;
+        border-color: #000000;
+        border-style:initial;
+        box-shadow: 0 4px 8px rgba(139, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+  
+        .wilayah img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+  
+        .wilayah p {
+            font-size: 1em;
+            line-height: 1.4;
+        }
+        
+        .container h1 {
+          font-size: 1.8em;
+          font-style: oblique;
+        }
+
+        .explanation {
+          display: none;
+          font-size: 11px;
+          color: #0044ff;
+          margin-left: 10px;
+          background-color: #ffffff;
+          padding: 2px;
+          font-style: oblique;
+        }
+
+
+        /* Tambahkan aturan media query untuk responsif */
+        @media screen and (min-width: 600px) {
+            #wilayah-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+  
+        @media screen and (min-width: 900px) {
+            #wilayah-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+
+    <!-- /* Animasi loading */ -->
+    <style>
+      .loader {
+        border: 8px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 8px solid #3498db;
+        width: 10vw; /* Gunakan viewport width (vw) untuk lebar */
+        height: 10vw; /* Gunakan viewport width (vw) untuk tinggi */
+        max-width: 50px; /* Batasi lebar maksimum */
+        max-height: 50px; /* Batasi tinggi maksimum */
+        -webkit-animation: spin 1s linear infinite; /* Safari */
+        animation: spin 1s linear infinite;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        display: none; /* Sembunyikan loader awalnya */
+      }
+
+      /* Tambahkan media queries untuk ukuran layar tertentu */
+      @media screen and (max-width: 768px) {
+        .loader {
+          /* Sesuaikan lebar dan tinggi sesuai kebutuhan */
+          width: 20vw;
+          height: 20vw;
+        }
+      }
+
+      /* Tambahkan aturan media queries untuk layar seluler */
+      @media screen and (max-width: 576px) {
+        .loader {
+          width: 20vw; /* Sesuaikan lebar untuk layar seluler */
+          height: 20vw; /* Sesuaikan tinggi untuk layar seluler */
+          max-width: 40px; /* Sesuaikan lebar maksimum untuk layar seluler */
+          max-height: 40px; /* Sesuaikan tinggi maksimum untuk layar seluler */
+        }
+      }
+
+      @-webkit-keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <!-- ToTop -->
+    <style>
+      #toTop {
+        display: none; /* Initially hidden */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #a30c0c;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        line-height: 40px;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .bounce {
+        animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-15px);
+        }
+        60% {
+          transform: translateY(-7px);
+        }
+      }
+
+      #toTop:hover {
+        background-color: #00b7ff;
+        color: #000000;
+        background-position: contain;
+        transform: scale(1.1);
+        background-position: center;
+        background-size: contain;
+      }
+    </style>
+
+</head>
+  <body>
+    <div id="loader" class="loader"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" id="mainNavbar">
+      <div class="container">
+        <a class="navbar-brand" href="/index.html"><img src="/img/MMM_LOGO_2.png" alt="Logo" width="90" height="66" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link fw-bold" aria-current="page" href="/index.html">BERANDA</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> TENTANG KAMI </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/profil/profil.html">Profil Perusahaan</a></li>
+                <li><a class="dropdown-item active" href="/profil/pemasaran.html">Wilayah Pemasaran</a></li>
+                <li><a class="dropdown-item" href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                <li><a class="dropdown-item" href="/profil/sosial.html">Partisipasi & Peduli Sosial</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="/produk/produk.html">PRODUK</a>
+            </li>
+            <li class="nav-item dropdown mx-2">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> MEDIA </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="/events/event.html">Event</a></li>
+                <li><a class="dropdown-item" href="/berita/berita.html">Berita</a></li>
+                <li><a class="dropdown-item" href="/maps/maps.html">Maps</a></li>
+                <li></li>
+              </ul>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link fw-bold" href="/kontak/kontak.html">KONTAK KAMI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- nav end -->
+
+    <!-- Menu section start -->
+    <section id="outerMainSection" style="background-image: url('/img/built\ up\ logistik.jpg')" class="content page py-5 container-fluid">
+      <div class="row">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-11 row-container px-0">
+          <nav aria-label="breadcrumb">
+            <ol id="breadcrumb" class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/" class="text-white">Home</a></li>
+              <li class="breadcrumb-item"><a href="#" class="text-white">Tentang Kami</a></li>
+              <li class="breadcrumb-item text-warning">Jaringan Distribusi</li>
+            </ol>
+          </nav>
+          <div class="card bg-white">
+            <div class="row mb-3 position-relative header-container mx-0">
+                <div class="icon-fly">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="100" fill="currentColor" class="bi bi-truck" viewBox="0 0 16 16" style="color: #b30a0a;">
+                        <path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"/>
+                      </svg>
+                </div>
+                <div class="col d-flex align-items-end">
+                  <h1 class="font-weight-bold text-blue">Wilayah Pemasaran</h1>
+                </div>
+              </div>
+
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12 col-12 sidebar-container mb-4" style="background-color: #f7f7f7;">
+                  <div class="col-12">
+                    <div class="pin-wrapper">
+                      <h6 class="mb-none"><strong>TENTANG KAMI</strong></h6>
+                      <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+                      <h6><strong>PROFIL PERUSAHAAN</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/profil.html">Sejarah, Visi, dan Misi</a></p>
+                        <p class="item-active"><a data-hash="" data-hash-offset="110" href="/profil/makna logo.html">Makna, dan karakteristik Logo</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/struktur perusahaan.html">Struktur Organisasi Perusahaan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="#">Jaringan Distribusi Perusahaan</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/sdm.html">Sumber Daya Manusia</a></p>
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/sosial.html">Partisipasi Sosial Perusahaan</a></p>
+                      </ul>
+                      <h6><strong>MANAJEMEN</strong></h6>
+                      <ul class="nav nav-list mb-xl show-bg-active">
+                        <p><a data-hash="" data-hash-offset="110" href="/profil/direksi.html">Direksi</a></p>
+                      </ul>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12 sidebar-container">
+    <!-- Menu section start -->
+    <section id="barang" class="barang">
+      <h2 class="text-center"><span>Distribusi Kami</span></h2>
+        <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+          <p>PT Merapi Maju Makmur memiliki jaringan pemasaran luas di sembilan wilayah pemasaran berbeda. Setiap wilayah pemasaran memiliki departemen pos pusat yang bertanggung jawab untuk mengelola pengiriman di wilayah tersebut.
+          Selain itu, setiap pos pusat dilengkapi dengan unit stock point yang dirancang untuk menjamin ketersediaan produk di seluruh wilayah penjualan.
+          Unit stock point ini membuat produk kami mudah diakses  oleh konsumen di mana pun, membantu kami menjaga kepuasan pelanggan dan mendukung pertumbuhan bisnis kami secara keseluruhan.</p>
+   </section>
+    <!-- Menu section end -->
+  
+    <!-- KONTEN PEMASARAN -->
+      <section id="cabang">
+        <div class="container justify-content-center">
+          <div id="map">
+            <div class="row embed-responsive embed-responsive-6by12">
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1gbIfLQXGDUDrRRAirZsgIdE8_GfymXY&ehbc=2E312F" width="640" height="480"></iframe>
+            </div>
+          </div>
+          <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+          <div class="container bg-light mt-3" style="border-radius: 0px; border-style: double;  padding: 0.3rem;">
+            <h1 class="text-center">KETERANGAN TITIK LOKASI</h1>
+          </div>
+  
+          <div id="wilayah-container">
+            <div class="wilayah">
+              <i data-feather="home" style="color: rgb(117, 117, 117)"  width="40" height="40"></i>
+              <h5 class="mt-3">UNIT PUSAT</h5>
+              <p>Kami memiliki Unit Pusat yang berfungsi sebagai pusat distribusi <i data-feather="move" style="color: rgb(117, 117, 117);" width="20" height="20" onclick="toggleExplanation('abu')"></i>
+                <span id="abu" class="explanation">Garis berwarna Abu-abu pada peta menunjukkan jaringan pemasaran ke tiap Unit Wilayah tujuan</span>, pemasaran dan gudang untuk segala jenis pengiriman barang  yang mencakup hampir keseluruhan wilayah dalam operasional pengiriman kami. Lokasi kami terletak di Cileungsi, Kabupaten Bogor.</p>
+            </div>
+  
+            <div class="wilayah">
+              <i data-feather="home" style="color: rgb(0, 0, 0);" width="40" height="40" onclick="toggleExplanation('home')"></i>
+              <span id="home" class="explanation">Home</span>
+              <h5 class="mt-3">UNIT WILAYAH JAKARTA 1</h5>
+              <p>
+                Kami memiliki jaringan pemasaran yang merata di seluruh wilayah Jakarta, dengan penekanan tertinggi pada pemasaran di Kota Administrasi Jakarta Barat.
+                <p>
+                  Unit Wilayah Jakarta 1 juga berperan sebagai warehouse pusat 
+                  <i data-feather="move" style="color: rgb(0, 0, 0);" width="20" height="20" onclick="toggleExplanation('move')"></i>
+                  <span id="move" class="explanation">Garis berwarna Hitam pada peta menunjukkan jaringan pemasaran ke tiap Unit Wilayah tujuan</span>
+                  pengiriman untuk 
+                  <i data-feather="map-pin" style="color: rgb(255, 234, 0);" width="20" height="20" onclick="toggleExplanation('jakarta2')"></i>
+                  <span id="jakarta2" class="explanation">Unit Wilayah Jakarta 2</span>
+                  dan 
+                  <i data-feather="map-pin" style="color: rgb(245, 124, 0);" width="20" height="20" onclick="toggleExplanation('tangerang')"></i>
+                  <span id="tangerang" class="explanation">Unit Wilayah Tangerang</span>
+                </p>
+              </p>
+            </div>            
+  
+            <div class="wilayah">
+              <i data-feather="map-pin" style="color: rgb(255, 234, 0)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH JAKARTA 2</h5>
+              <p>Kami memiliki jaringan pemasaran yang merata di seluruh wilayah Jakarta, dengan penekanan tertinggi pada pemasaran di Kota Administrasi Jakarta Timur.</p>
+            </div>
+  
+            <div class="wilayah">
+              <i data-feather="map-pin" style="color: rgb(245, 124, 0)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH TANGERANG</h5>
+              <p>
+                Kami memiliki jaringan pemasaran yang merata di Wilayah Tangerang Kota dan Kabupaten, dengan Unit Pos Tangerang sebagai pusat distribusi. Selain itu, terdapat stok poin strategis di Cikupa untuk memastikan ketersediaan produk kami di seluruh wilayah tersebut.</p>
+            </div>
+  
+            <div class="wilayah">
+              <i data-feather="map-pin" style="color: rgb(100, 45, 0)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH DEPOK</h5>
+              <p>Kami memiliki jaringan pemasaran yang merata di Wilayah Kota Administrasi Depok dengan Unit Pos Depok sebagai pusat distribusi, Selain itu, terdapat stok poin strategis di Cileungsi untuk memastikan ketersediaan produk kami di seluruh wilayah tersebut.</p>
+            </div>
+  
+            <div class="wilayah">
+              <i data-feather="map-pin" style="color: rgb(124, 179, 66)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH BOGOR</h5>
+              <p>Kami memiliki jaringan pemasaran yang tersebar di Kota, dan Kabupaten Bogor dengan unit Pos Bogor sebagai pusat distribusi, Selain itu, terdapat stok poin yang berlokasi di tiga wilayah, yakni Cianjur, Leuwiliang, dan Sukabumi untuk memastikan ketersediaan produk kami di seluruh wilayah tersebut.</p>
+            </div>
+  
+            <div class="wilayah">
+              <i data-feather="map-pin" style="color: rgb(165, 20, 20)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH BANTEN</h5>
+              <p>Kami memiliki jaringan pemasaran yang tersebar di 3 Pos sebagai pusat distribusi, yaitu:</p>
+              <p>1. Unit Pos Pandeglang dengan stok poin yang berlokasi di Labuan</p>
+              <p>2. Unit Pos Serang</p>
+              <p>3. Unit Pos Malingping</p>
+            </div>
+  
+            <div class="wilayah mb-3">
+              <i data-feather="map-pin" style="color: rgb(103, 58, 183)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH BEKASI</h5>
+              <p>Kami memiliki jaringan pemasaran yang tersebar di dua Pos sebagai pusat distribusi, yaitu:</p>
+              <p>1. Pos Bekasi</p>
+              <p>2. Pos Karawang</p>
+            </div>
+  
+            <div class="wilayah mb-3">
+              <i data-feather="map-pin" style="color: rgb( 2, 136, 209)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH BANDUNG</h5>
+              <p>Kami memiliki jaringan pemasaran yang tersebar di Wilayah Bandung dengan unit Pos Bandung sebagai pusat distribusi, dengan stok poin yang berlokasi di tiga wilayah, yakni Sumedang, Padalarang, dan Subang sebagai penunjang ketersediaan produk kami di seluruh wilayah tersebut.</p>
+            </div>
+  
+            <div class="wilayah mb-3">
+              <i data-feather="map-pin" style="color: rgb( 9, 113, 56)" width="40" height="40"></i>
+              <h5 class="mt-3">UNIT WILAYAH CIREBON</h5>
+              <p>Kami memiliki jaringan pemasaran yang tersebar di dua Pos sebagai pusat distribusi, yakni:</p>
+              <p>1. Pos Cirebon dengan stok poin Kuningan untuk memastikan ketersediaan produk kami di seluruh wilayah tersebut</p>
+              <p>2. Pos Majalengka dengan stok poin Indramayu untuk memastikan ketersediaan produk kami di seluruh wilayah tersebut.</p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="divider divider-primary divider-small mb-xl"><hr /></div>
+      </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+      <!-- FOOTER -->
+   <footer id="menuFooterSection" class="container-fluid py-5">
+    <div class="row">
+      <div class="col-lg-10 col-md-10 col-sm-12 col-12 mx-auto">
+        <div class="row">
+          <div class="col-lg-8 col-md-8 col-sm-12 col-12 mb-3 footer-menu-container">
+            <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">TENTANG KAMI</div>
+                <ul class="footer-links">
+                  <li><a href="/index.html">Beranda</a></li>
+                  <li><a href="/profil/profil.html">Profil</a></li>
+                  <li><a href="/profil/pemasaran.html">Pemasaran</a></li>
+                  <li><a href="/profil/sdm.html">Sumber Daya Manusia</a></li>
+                  <li><a href="/profil/sosial.html">Partisipasi Sosial</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">PRODUK KAMI</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/produk/produk.html">Produk</a></li>
+                  <li><a href="/login/login2.html">Branding</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">MEDIA</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/events/event.html">Event</a></li>
+                  <li><a href="/berita/berita.html">Berita</a></li>
+                  <li><a href="/maps/maps.html">Peta</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-3">
+                <div class="menu-title font-weight-bold text-uppercase mb-3 fw-bold text-warning">KARYAWAN</div>
+                <ul class="footer-links">
+                  <!-- <li><a href="/news">What's On</a></li> -->
+                  <li><a href="/kontak/karir.html">Karir</a></li>
+                  <li><a href="/login/login.html">Download</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-3">
+            <div class="contact-135 mb-5">
+              <div class="font-weight-bold title text-uppercase fw-bold text-warning">HUBUNGI KAMI</div>
+              <ul class="footer-links">
+                <!-- <li><a href="/news">What's On</a></li> -->
+                <li><a href="/kontak/kontak.html">Kontak Form</a></li>
+              </ul>
+            </div>
+            <div class="address">
+              <p><strong>Alamat : </strong>Ruko Limus Pratama, Blok C No 30,, Jl. Raya Narogong, Limus Nunggal, Kec. Cileungsi, Kabupaten Bogor, Jawa Barat 16820</p>
+            </div>
+            <ul class="footer-list">
+              <li>
+                <a href="https://www.instagram.com/aboutthree_m/" target="_blank"><i data-feather="instagram"></i></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/profile.php?id=61552155443891" target="_blank"><i data-feather="facebook"></i></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/aboutthree_m" target="_blank"><i data-feather="twitter"></i></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/channel/UCJArTtZcopK3oBfNWaaK_kw" target="_blank"><i data-feather="youtube"></i></a>
+              </li>
+              <div class="social-media-name d-flex align-items-center justify-content-center ml-2">| &nbsp;<strong>@aboutthree_m</strong></div>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-copy py-3">© Copyright PT Merapi Maju Makmur 2023. All Right Reserved</div>
+      </div>
+    </div>
+  </footer>
+
+    <!-- Arrow Up -->
+    <div id="toTop" class="toptip bounce" title="Back to Top"><i data-feather="chevron-up"></i></div>
+    <!-- Arrow Up end-->
+
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- MY JAVASCRIPT -->
+    <script src="/profil/script.js"></script>
+
+    <!-- Explanation -->
+    <script>
+      function toggleExplanation(id) {
+        var element = document.getElementById(id);
+        if (element.style.display === "none" || element.style.display === "") {
+          element.style.display = "inline";
+        } else {
+          element.style.display = "none";
+        }
+      }
+    
+      document.addEventListener('DOMContentLoaded', function() {
+        feather.replace();
+      });
+    </script>
+    
+    <!-- jQuery AU-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Show or hide the "Back to Top" button
+        $(window).scroll(function () {
+          if ($(this).scrollTop() > 200) {
+            $("#toTop").fadeIn();
+          } else {
+            $("#toTop").fadeOut();
+          }
+        });
+
+        // Scroll to top with a smooth transition
+        $("#toTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 800); // 800ms for the scroll duration
+          return false;
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,377 @@
+:root {
+  --primary: #ad0808;
+  --bg: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: poppins, sans-serif;
+  background-color: var(--bg);
+  color: #000000;
+  /* min-height: 5000px; */
+}
+
+/* Navbar style */
+.navbar {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  transition: background-color ease-in-out 0.3s, color ease-in-out 0.3s;
+}
+
+.navbar-brand {
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.nav-link {
+  border-bottom: 2px solid transparent; /* Garis bawah awalnya transparan */
+  transition: border-bottom-color 0.3s ease-in-out; /* Efek transisi untuk warna garis bawah */
+}
+
+.nav-item {
+  transition: transform 0.3s ease-out;
+}
+
+/* Navbar style */
+.navbar {
+  transition: background-color 0.3s ease, color 0.3s ease; /* Transisi warna latar belakang dan teks */
+}
+
+.nav-link {
+  color: #000; /* Warna teks link navigasi */
+  transition: color 0.3s ease; /* Transisi warna teks */
+}
+
+/* Warna teks pada navbar saat di-scroll */
+.navbar.scrolled .nav-link {
+  color: #fff; /* Ganti dengan warna teks putih saat di-scroll */
+}
+
+/* Warna latar belakang navbar saat di-scroll */
+.navbar.scrolled {
+  background-color: #fff !important; /* Ganti dengan warna latar belakang putih saat di-scroll */
+}
+
+/* Tambahkan padding untuk menengahkan tulisan di menu navigasi */
+.navbar-nav {
+  padding: 10px 0; /* Atur padding atas dan bawah */
+}
+
+.nav-item {
+  text-align: center; /* Pusatkan teks */
+}
+
+.nav-item:hover {
+  transform: scale(1.05);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  border-bottom-color: #b69e17; /* Warna garis bawah saat hover atau aktif */
+}
+
+/* Warna teks pada navbar saat awal */
+.navbar-light .navbar-brand,
+.navbar-light .nav-link {
+  color: #000 !important; /* Ganti dengan warna teks pada navbar saat awal */
+}
+
+/* Warna latar belakang navbar saat awal */
+.navbar-light {
+  background-color: #fff !important; /* Ganti dengan warna latar belakang navbar saat awal */
+}
+
+/* Warna latar belakang navbar saat di-scroll */
+.navbar-light.scrolled {
+  background-color: rgb(134, 17, 17) !important; /* Ganti dengan warna latar belakang navbar saat di-scroll */
+  color: #fff !important; /* Ganti dengan warna teks pada navbar saat di-scroll */
+}
+
+/* Tambahkan style untuk class 'scrolled' untuk warna teks */
+.scrolled .nav-link {
+  color: #ffffff !important; /* Ganti dengan warna teks yang diinginkan */
+}
+
+/* Navbar style */
+@media (max-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    position: fixed;
+    top: 81px;
+    bottom: 0;
+    left: -200px; /* Atur menu navigasi di luar layar */
+    width: 200px; /* Lebar menu navigasi */
+    padding-top: 50px; /* Atur jarak dari atas */
+    background-color: rgb(255, 255, 255); /* Warna latar belakang menu navigasi */
+    transition: left 0.3s ease; /* Efek transisi saat menu navigasi muncul */
+  }
+  .navbar.scrolled .navbar-collapse {
+    background-color: rgb(134, 17, 17);
+  }
+
+  .navbar-expand-lg .navbar-toggler {
+    position: fixed;
+    right: 15px; /* Atur posisi tombol hamburger */
+  }
+
+  .navbar-expand-lg .navbar-toggler:focus {
+    outline: none; /* Hilangkan focus outline pada tombol hamburger */
+  }
+
+  .navbar-expand-lg .navbar-toggler-icon {
+    color: #000; /* Warna ikon tombol hamburger */
+  }
+
+  .navbar-expand-lg .show {
+    left: 0; /* Geser menu navigasi ke dalam layar saat dibuka */
+  }
+
+  .navbar-expand-lg .nav-link {
+    display: block; /* Tampilkan link navigasi sebagai block element */
+    padding: 10px 0; /* Atur padding untuk link navigasi */
+    margin-bottom: 10px; /* Atur margin bawah untuk link navigasi */
+    color: #000; /* Warna teks link navigasi */
+    transition: color 0.3s ease; /* Efek transisi untuk perubahan warna */
+  }
+}
+
+/* berita */
+
+/* footer */
+footer {
+  background-color: rgb(134, 17, 17);
+  text-align: center;
+  padding: 3rem 0;
+  color: #fff;
+}
+
+footer .footer-title {
+  color: #b69e17;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+footer .footer-item {
+  margin-bottom: 2rem;
+}
+
+.footer-contact-info {
+  display: grid;
+  grid-template-columns: 1fr; /* Satu kolom */
+  gap: 10px; /* Jarak antar item */
+  justify-content: center; /* Menyusun item ke tengah */
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-item i {
+  margin-right: 10px; /* Jarak antara ikon dan teks */
+}
+
+footer .footer-list,
+footer .footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-list li,
+footer .footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+footer .footer-list a,
+footer .footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer .footer-list a:hover,
+footer .footer-links a:hover {
+  color: #ffe600;
+}
+
+footer .footer-social {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+footer .footer-social a {
+  color: #fff;
+  margin: 0 1rem;
+}
+
+footer .footer-contact-info {
+  text-align: left;
+}
+
+footer .footer-contact-info > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+footer .footer-contact-info i {
+  margin-right: 0.5rem;
+}
+
+footer .credit {
+  font-size: 0.8rem;
+}
+
+footer .credit a {
+  color: #b69e17;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  footer .footer-item {
+    text-align: center;
+  }
+
+  footer .footer-item-subscribe {
+    margin-top: 2rem;
+  }
+
+  footer .footer-social {
+    justify-content: center;
+  }
+
+  footer .footer-social a {
+    margin: 0 0.5rem;
+  }
+
+  footer .footer-contact-info {
+    text-align: center;
+  }
+
+  footer .footer-contact-info > div {
+    justify-content: center;
+  }
+
+  footer .footer-contact-info i {
+    margin-right: 0.2rem;
+  }
+}
+
+/* style footer layar hp */
+
+@media (max-width: 768px) {
+  footer .footer-item:nth-child(2),
+  footer .footer-item:nth-child(3) {
+    display: none;
+  }
+
+  footer .footer-item-subscribe {
+    margin-top: 2rem;
+  }
+
+  footer .footer-social {
+    justify-content: center;
+  }
+
+  footer .footer-social a {
+    margin: 0 0.5rem;
+  }
+
+  footer .footer-contact-info {
+    text-align: center;
+  }
+
+  footer .footer-contact-info > div {
+    justify-content: center;
+  }
+
+  footer .footer-contact-info i {
+    margin-right: 0.2rem;
+  }
+}
+
+/* Untuk layar PC berukuran lebar */
+@media (min-width: 1440px) {
+  html {
+    font-size: 100%; /* Atur ukuran font kembali ke ukuran normal */
+  }
+  /* Tambahkan gaya khusus untuk layar PC di sini jika diperlukan */
+}
+
+/* Untuk layar laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%; /* Mengurangi ukuran font untuk layar laptop */
+  }
+  /* Sesuaikan gaya CSS untuk ukuran layar laptop di sini */
+}
+
+/* Untuk layar tablet */
+@media (max-width: 1024px) {
+  html {
+    font-size: 62.5%; /* Mengurangi ukuran font untuk layar tablet */
+  }
+  /* Sesuaikan gaya CSS untuk ukuran layar tablet di sini */
+}
+
+/* Untuk layar smartphone */
+@media (max-width: 768px) {
+  /* Sesuaikan gaya CSS untuk ukuran layar smartphone di sini */
+}
+
+/* handphone */
+@media (max-width: 450px) {
+  html {
+    font-size: 75%;
+  }
+}
+
+/* arrow button */
+.arrow-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.arrow-container:hover {
+  opacity: 1;
+}
+
+.arrow {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.arrow {
+  transition: transform 2.3s ease-in-out;
+}
+
+.arrow:hover {
+  transform: scale(1.05);
+}
